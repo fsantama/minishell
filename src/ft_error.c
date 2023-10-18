@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 17:08:17 by fsantama          #+#    #+#             */
-/*   Updated: 2023/10/18 19:57:59 by fsantama         ###   ########.fr       */
+/*   Created: 2023/10/18 19:01:18 by fsantama          #+#    #+#             */
+/*   Updated: 2023/10/18 19:04:48 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
 
-int	main(int argc, char **argv)
+void	ft_error(char *error)
 {
-	(void)	argv;
-	char	*input;
-	const char *prompt = "minishell> ";
-	if (argc == 1)
-	{
-		while(1)
-		{
-			input = readline(prompt);					
-		}
-	}
-	else
-		ft_error(INVALID_ARGS);
-	return (0);
+	printf("%s\n", error);
+	exit(1);
 }

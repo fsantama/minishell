@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:05:13 by fsantama          #+#    #+#             */
-/*   Updated: 2023/10/17 18:07:07 by fsantama         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:06:38 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 
 /*-----------------------------------ERRORS-----------------------------------*/
 
-#define INVALID_ARGS 
+#define INVALID_ARGS "Usage: ./minishell"
+
+void	ft_error(char *error);
 
 #endif
