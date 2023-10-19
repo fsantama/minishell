@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 16:53:56 by fsantama          #+#    #+#              #
-#    Updated: 2023/10/18 19:54:10 by fsantama         ###   ########.fr        #
+#    Updated: 2023/10/19 18:41:35 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,7 @@ $(NAME) : $(OBJS)
 	@echo " =======================================================			"
 	@echo "                                                       $(DEFAULT)"
 	@echo "$(GREEN) $(NAME) make done ✅ $(DEFAULT)"
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(FLAGS) $(LIBFT) $(OBJS) -L"/Users/$(USER)/.brew/opt/readline/lib/" -o $(NAME) -lreadline
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@

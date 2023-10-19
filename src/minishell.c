@@ -6,23 +6,30 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:08:17 by fsantama          #+#    #+#             */
-/*   Updated: 2023/10/18 19:57:59 by fsantama         ###   ########.fr       */
+/*   Updated: 2023/10/19 19:35:08 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
 
+void	get_line(void)
+{
+	char	*input;
+
+	while (1)
+	{
+		input = readline(CYAN "babyshell 👶 " DEFAULT);
+		if (input == NULL)
+			ft_error(INVALID_INPUT);
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	(void)	argv;
-	char	*input;
-	const char *prompt = "minishell> ";
+	(void) argv;
 	if (argc == 1)
 	{
-		while(1)
-		{
-			input = readline(prompt);					
-		}
+		get_line();
 	}
 	else
 		ft_error(INVALID_ARGS);
