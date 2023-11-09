@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 16:53:56 by fsantama          #+#    #+#              #
-#    Updated: 2023/10/19 18:41:35 by fsantama         ###   ########.fr        #
+#    Updated: 2023/11/09 19:38:46 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ CC 		=	gcc
 CFLAGS =	-Werror -Wall -Wextra
 
 NAME 	=	minishell
+LIBFT 	=	./inc/Libft/libft.a
 
 
 # =============================================================================#
@@ -27,7 +28,9 @@ NAME 	=	minishell
 # =============================================================================#
 
 SRCS	=	src/minishell.c \
-			src/ft_error.c \
+			src/utils/ft_error.c \
+			src/utils/manage_array.c \
+			src/pipe/pipe_utils.c \
 			
 			
 OBJS	=	$(SRCS:.c=.o)
@@ -37,9 +40,12 @@ OBJS	=	$(SRCS:.c=.o)
 # =============================================================================#
 
 
-all : $(NAME) 
+all : $(NAME) $(LIBFT)
 
-$(NAME) : $(OBJS)
+$(LIBFT) : 
+	@make  -C inc/Libft > /dev/null
+
+$(NAME) : $(LIBFT) $(OBJS)
 	@echo "$(CYAN) ======================================================="
 	@echo "| 	 _           _               _          _ _ 	|"
 	@echo "| 	| |__   __ _| |__  _   _ ___| |__   ___| | |	|"
@@ -106,11 +112,15 @@ $(NAME) : $(OBJS)
 
 clean :
 	@rm -f $(OBJS)
+	@make -C inc/Libft clean > /dev/null
 	@echo "$(RED) $(NAME) objects clean done 🧹 $(DEFAULT)"
+	@echo "$(RED) $(LIBFT) objects clean done 🧹 $(DEFAULT)"
 
 fclean : clean
 	@rm -f $(NAME)
+	@make -C inc/Libft fclean > /dev/null
 	@echo "$(RED) $(NAME) clean done 🧹 $(DEFAULT)"
+	@echo "$(RED) $(LIBFT) clean done 🧹 $(DEFAULT)"
 
 re: fclean all
 

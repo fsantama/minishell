@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:05:13 by fsantama          #+#    #+#             */
-/*   Updated: 2023/10/19 19:40:56 by fsantama         ###   ########.fr       */
+/*   Updated: 2023/11/09 18:40:08 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*---------------------------------LIBRARIES----------------------------------*/
 
-//# include "../libft/libft.h"
+# include "Libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <readline/readline.h>
@@ -26,14 +26,44 @@
 
 /*-----------------------------------HEADER-----------------------------------*/
 
-
+# define HEADER "\n\
+\033[36;1m 	 _           _               _          _ _ 	\n \
+ 	| |__   __ _| |__  _   _ ___| |__   ___| | |	\n \
+ 	|  _ \\ / _  |  _ \\| | | / __|  _ \\ / _ \\ | |	\n \
+ 	| |_) | (_| | |_) | |_| \\__ \\ | | |  __/ | |	\n \
+ 	|_.__/ \\__,_|_.__/ \\__, |___/_| |_|\\___|_|_|	\n \
+ 	                   |___/                    	\n \
+																		\n \
+\033[37;1m              Develop by cejimene && fsantama                  \n \
+\n\033[0m"
 
 /*-----------------------------------ERRORS-----------------------------------*/
 
 # define INVALID_ARGS "Usage: ./minishell"
 # define INVALID_INPUT "Closing shell\n"
 
+/*---------------------------------STRUCTURES---------------------------------*/
+
+typedef struct s_pipe
+{
+	char	**envp;
+	char	**path;
+}	t_pipe;
+
+/*---------------------------------FUNCTIONS----------------------------------*/
+
+						//* Error control functions *//
+
 void	ft_error(char *error);
+
+							//* Pipex functions *//
+
+void	ft_init_pipe(t_pipe *pipex, char **argv, char **envp);
+
+							//* Utils functions *//
+
+char	**ft_arraydup(char **array);
+
 
 /*-----------------------------------COLORS-----------------------------------*/
 

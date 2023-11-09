@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   pipe_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 19:01:18 by fsantama          #+#    #+#             */
-/*   Updated: 2023/10/18 19:04:48 by fsantama         ###   ########.fr       */
+/*   Created: 2023/11/09 17:35:25 by fsantama          #+#    #+#             */
+/*   Updated: 2023/11/09 19:39:38 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minishell.h"
+#include "../../inc/minishell.h"
 
-void	ft_error(char *error)
+void	ft_init_pipe(t_pipe *pipex, char **argv, char **envp)
 {
-	printf("%s\n", error);
-	exit(1);
+	(void) argv;
+	pipex->envp = ft_arraydup(envp);
 }
