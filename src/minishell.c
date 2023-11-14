@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:08:17 by fsantama          #+#    #+#             */
-/*   Updated: 2023/11/09 19:40:15 by fsantama         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:26:58 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,30 @@ void	leaks(void)
 	system("leaks -q minishell");
 }
 
-char	*get_line(void)
+void	loop(void)
 {
 	char	*input;
 
-	input = readline(CYAN "babyshell 👶 " DEFAULT);
-	if (input == NULL)
-		ft_error(INVALID_INPUT);
-	return (input);
+	while (1)
+	{
+		input = get_line();
+		if (!input)
+			ft_error(INVALID_INPUT);
+		add_history(input);
+		free(input);
+	}
 }
 
-int	main(int argc, char **argv, char **env)
+int	main(int argc, char **argv, char **envp)
 {
 	t_pipe	pipex;
 
-	(void) argv;
 	atexit(leaks);
 	printf("%s", HEADER);
 	if (argc == 1)
 	{
-		ft_init_pipe(&pipex, argv, env);
-		get_line();
+		ft_init_pipe(&pipex, argv, envp);
+		loop();
 	}
 	else
 		ft_error(INVALID_ARGS);

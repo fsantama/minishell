@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:05:13 by fsantama          #+#    #+#             */
-/*   Updated: 2023/11/09 18:40:08 by fsantama         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:34:38 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 
 /*-----------------------------------ERRORS-----------------------------------*/
 
-# define INVALID_ARGS "Usage: ./minishell"
+# define INVALID_ARGS "Usage: ./minishell\n"
 # define INVALID_INPUT "Closing shell\n"
 
 /*---------------------------------STRUCTURES---------------------------------*/
@@ -63,7 +63,7 @@ void	ft_init_pipe(t_pipe *pipex, char **argv, char **envp);
 							//* Utils functions *//
 
 char	**ft_arraydup(char **array);
-
+char	*get_line(void);
 
 /*-----------------------------------COLORS-----------------------------------*/
 

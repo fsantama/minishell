@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   readline_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 19:01:18 by fsantama          #+#    #+#             */
-/*   Updated: 2023/11/14 18:33:31 by fsantama         ###   ########.fr       */
+/*   Created: 2023/11/14 17:05:46 by fsantama          #+#    #+#             */
+/*   Updated: 2023/11/14 18:45:53 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
 /**
- * @brief			Prints an error message. 
- *					Displays additional details about the last error using perror.
- *					Exits the program with a failure status.
+ *	@brief	Obtains a line of input from the user using the readline library.
+ *			Displays a CYAN-colored prompt indicating it's a babyshell.
  * 
- * @param	error	A pointer to the error message string.
+ *	@return	char* A pointer to the string entered by the user.
+ 
+ *	NOTE:	The memory allocated for the string should be freed by the caller.
  */
-void	ft_error(char *error)
+char	*get_line(void)
 {
-	return (ft_putstr_fd(error, 2), perror(""), exit(EXIT_FAILURE));
+	return (readline(CYAN "babyshell 👶 " DEFAULT));
 }

@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 16:53:56 by fsantama          #+#    #+#              #
-#    Updated: 2023/11/09 19:38:46 by fsantama         ###   ########.fr        #
+#    Updated: 2023/11/14 17:23:25 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS	=	src/minishell.c \
 			src/utils/ft_error.c \
 			src/utils/manage_array.c \
 			src/pipe/pipe_utils.c \
+			src/utils/readline_utils.c \
 			
 			
 OBJS	=	$(SRCS:.c=.o)
