@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:05:13 by fsantama          #+#    #+#             */
-/*   Updated: 2023/11/14 18:34:38 by fsantama         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:58:55 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,26 @@
 # define INVALID_ARGS "Usage: ./minishell\n"
 # define INVALID_INPUT "Closing shell\n"
 
+/*-----------------------------------ERRORS-----------------------------------*/
+
+# define LINE "babyshell 👶 "
+
 /*---------------------------------STRUCTURES---------------------------------*/
+
+typedef struct s_cmd
+{
+	char	*cmd;
+	char	**args;
+}	t_cmd;
 
 typedef struct s_pipe
 {
 	char	**envp;
 	char	**path;
+	int		fd_in;
+	int		fd_out;
+	int		tmp_in;
+	int		tmp_out;
 }	t_pipe;
 
 /*---------------------------------FUNCTIONS----------------------------------*/
@@ -58,12 +72,25 @@ void	ft_error(char *error);
 
 							//* Pipex functions *//
 
-void	ft_init_pipe(t_pipe *pipex, char **argv, char **envp);
-
 							//* Utils functions *//
 
+// manageArrayUtils
+
 char	**ft_arraydup(char **array);
-char	*get_line(void);
+void	ft_arrayfree(char **array);
+size_t	ft_arraylen(char **array);
+
+// parserUtils
+
+char	**ft_getpath(char **envp);
+
+// pipeUtils
+
+void	ft_initpipex(t_pipe *pipex, char **argv, char **envp);
+
+// readlineUtils
+
+char	*ft_getline(char *str);
 
 /*-----------------------------------COLORS-----------------------------------*/
 

@@ -1,55 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_array.c                                     :+:      :+:    :+:   */
+/*   ft_arraydup.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 17:55:05 by fsantama          #+#    #+#             */
-/*   Updated: 2023/11/14 19:02:38 by fsantama         ###   ########.fr       */
+/*   Created: 2023/11/15 17:05:37 by fsantama          #+#    #+#             */
+/*   Updated: 2023/11/15 17:46:56 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/minishell.h"
-
-/**
- *	@brief			Frees the memory allocated for an array of strings.
- * 
- *	@param	array	A pointer to the array of strings to free.
- */
-void	ft_free_array(char **array)
-{
-	int	i;
-
-	if (array)
-	{
-		i = 0;
-		while (array[i])
-		{
-			free(array[i]);
-			i++;
-		}
-		free(array);
-	}
-}
-
-/**
- *	@brief			Calculates the length of an array of strings.
- * 
- *	@param	array	A pointer to the array of strings.
- *	@return			size_t The number of strings in the array.
- */
-size_t	ft_arraylen(char **array)
-{
-	size_t	i;
-
-	i = 0;
-	if (array == NULL)
-		return (0);
-	while (array[i])
-		i++;
-	return (i);
-}
+#include "../../../inc/minishell.h"
 
 /**
  *	@brief Duplicates an array of strings.

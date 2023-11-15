@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipe_utils.c                                       :+:      :+:    :+:   */
+/*   ft_arrayfree.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 17:35:25 by fsantama          #+#    #+#             */
-/*   Updated: 2023/11/09 19:39:38 by fsantama         ###   ########.fr       */
+/*   Created: 2023/11/15 17:08:46 by fsantama          #+#    #+#             */
+/*   Updated: 2023/11/15 17:47:01 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/minishell.h"
+#include "../../../inc/minishell.h"
 
-void	ft_init_pipe(t_pipe *pipex, char **argv, char **envp)
+/**
+ *	@brief			Frees the memory allocated for an array of strings.
+ * 
+ *	@param	array	A pointer to the array of strings to free.
+ */
+void	ft_arrayfree(char **array)
 {
-	(void) argv;
-	pipex->envp = ft_arraydup(envp);
+	int	i;
+
+	if (array)
+	{
+		i = 0;
+		while (array[i])
+		{
+			free(array[i]);
+			i++;
+		}
+		free(array);
+	}
 }

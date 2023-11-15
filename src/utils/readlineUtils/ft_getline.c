@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   readline_utils.c                                   :+:      :+:    :+:   */
+/*   ft_getline.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 17:05:46 by fsantama          #+#    #+#             */
-/*   Updated: 2023/11/14 18:45:53 by fsantama         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:49:45 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/minishell.h"
+#include "../../../inc/minishell.h"
 
 /**
- *	@brief	Obtains a line of input from the user using the readline library.
- *			Displays a CYAN-colored prompt indicating it's a babyshell.
- * 
- *	@return	char* A pointer to the string entered by the user.
- 
- *	NOTE:	The memory allocated for the string should be freed by the caller.
+ *	@brief		Read a user input line with a colored prompt.
+ *
+ *	@param	str	Additional text to be displayed in the prompt.
+ *	@return		char* The user input line, or NULL if an error occurs.
+ 	NOTE:		The memory allocated for the string should be freed by the caller.
  */
-char	*get_line(void)
+char	*ft_getline(char *str)
 {
-	return (readline(CYAN "babyshell 👶 " DEFAULT));
+	char	*prompt;
+	char	*aux;
+	char	*input;
+
+	aux = ft_strjoin(CYAN, str);
+	prompt = ft_strjoin(aux, DEFAULT);
+	input = readline(prompt);
+	return (free(prompt), free(aux), input);
 }

@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 16:53:56 by fsantama          #+#    #+#              #
-#    Updated: 2023/11/14 17:23:25 by fsantama         ###   ########.fr        #
+#    Updated: 2023/11/15 19:00:18 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,12 @@ LIBFT 	=	./inc/Libft/libft.a
 
 SRCS	=	src/minishell.c \
 			src/utils/ft_error.c \
-			src/utils/manage_array.c \
-			src/pipe/pipe_utils.c \
-			src/utils/readline_utils.c \
+			src/utils/manageArrayUtils/ft_arraydup.c \
+			src/utils/manageArrayUtils/ft_arrayfree.c \
+			src/utils/manageArrayUtils/ft_arraylen.c \
+			src/utils/parserUtils/ft_getpath.c \
+			src/utils/pipeUtils/ft_initpipex.c \
+			src/utils/readlineUtils/ft_getline.c \
 			
 			
 OBJS	=	$(SRCS:.c=.o)
