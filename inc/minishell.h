@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:05:13 by fsantama          #+#    #+#             */
-/*   Updated: 2023/11/15 18:58:55 by fsantama         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:01:11 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	ft_error(char *error);
 char	**ft_arraydup(char **array);
 void	ft_arrayfree(char **array);
 size_t	ft_arraylen(char **array);
+void	ft_printarray(char **array);
 
 // parserUtils
 

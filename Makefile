@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 16:53:56 by fsantama          #+#    #+#              #
-#    Updated: 2023/11/15 19:00:18 by fsantama         ###   ########.fr        #
+#    Updated: 2023/11/16 16:00:39 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS	=	src/minishell.c \
 			src/utils/manageArrayUtils/ft_arraydup.c \
 			src/utils/manageArrayUtils/ft_arrayfree.c \
 			src/utils/manageArrayUtils/ft_arraylen.c \
+			src/utils/manageArrayUtils/ft_printarray.c \
 			src/utils/parserUtils/ft_getpath.c \
 			src/utils/pipeUtils/ft_initpipex.c \
 			src/utils/readlineUtils/ft_getline.c \

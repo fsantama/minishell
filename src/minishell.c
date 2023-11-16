@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:08:17 by fsantama          #+#    #+#             */
-/*   Updated: 2023/11/15 19:06:22 by fsantama         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:10:12 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	loop(t_pipe *pipex)
 //		if (ft_strlen(input) > 0 && ft_strlen(aux) > 0)
 //			printf("hola");
 //		else
-		free(input);
+			free(input);
 		free (aux);
 //		ft_arrayfree(pipex->path);
 	}
@@ -47,6 +47,8 @@ int	main(int argc, char **argv, char **envp)
 	if (argc == 1)
 	{
 		ft_initpipex(&pipex, argv, envp);
+//		ft_printarray(pipex.path);
+//		ft_printarray(pipex.envp);
 		loop(&pipex);
 	}
 	else
