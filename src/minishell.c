@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
+/*   Updated: 2024/02/05 10:04:38 by fsantama         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/minishell.h"
 
 void	leaks(void)
@@ -10,6 +22,7 @@ void	loop(t_pipe *pipex)
 	char	*input;
 	char	*aux;
 	(void) pipex;
+
 	while (1)
 	{
 		input = ft_getline(LINE);

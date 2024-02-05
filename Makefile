@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
+#    Updated: 2024/02/05 10:17:03 by fsantama         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # =============================================================================#
 #                        	GENERAL CONFIG & FLAGS                             #
 # =============================================================================#
@@ -16,7 +28,7 @@ LIBFT 	=	./inc/Libft/libft.a
 # =============================================================================#
 
 SRCS	=	src/minishell.c \
-			src/utils/ft_error.c \
+			src/utils/general_utils/ft_error.c \
 			src/utils/manageArrayUtils/ft_arraydup.c \
 			src/utils/manageArrayUtils/ft_arrayfree.c \
 			src/utils/manageArrayUtils/ft_arraylen.c \
