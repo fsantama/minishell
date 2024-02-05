@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/02/05 10:17:03 by fsantama         ###   ########.fr        #
+#    Updated: 2024/02/05 10:25:32 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,13 @@ LIBFT 	=	./inc/Libft/libft.a
 
 SRCS	=	src/minishell.c \
 			src/utils/general_utils/ft_error.c \
-			src/utils/manageArrayUtils/ft_arraydup.c \
-			src/utils/manageArrayUtils/ft_arrayfree.c \
-			src/utils/manageArrayUtils/ft_arraylen.c \
-			src/utils/manageArrayUtils/ft_printarray.c \
-			src/utils/parserUtils/ft_getpath.c \
-			src/utils/pipeUtils/ft_initpipex.c \
-			src/utils/readlineUtils/ft_getline.c \
+			src/utils/manage_array_utils/ft_arraydup.c \
+			src/utils/manage_array_utils/ft_arrayfree.c \
+			src/utils/manage_array_utils/ft_arraylen.c \
+			src/utils/manage_array_utils/ft_printarray.c \
+			src/utils/parser_utils/ft_getpath.c \
+			src/utils/pipe_utils/ft_initpipex.c \
+			src/utils/readline_utils/ft_getline.c \
 			
 			
 OBJS	=	$(SRCS:.c=.o)
@@ -52,12 +52,12 @@ $(LIBFT) :
 
 $(NAME) : $(LIBFT) $(OBJS)
 	@echo "$(CYAN) ======================================================="
-	@echo "|            _       _     _          _ _ 			|"
-	@echo "|  _ __ ___ (_)_ __ (_)___| |__   ___| | |			|"
-	@echo "| |  _   _ \| |  _ \| / __|  _ \ / _ \ | |			|"
-	@echo "| | | | | | | | | | | \__ \ | | |  __/ | |			|"
-	@echo "| |_| |_| |_|_|_| |_|_|___/_| |_|\___|_|_|			|"
-	@echo "|                                          			|"
+	@echo "| 	           _       _     _          _ _ 	|"
+	@echo "| 	 _ __ ___ (_)_ __ (_)___| |__   ___| | |	|"
+	@echo "| 	|  _   _ \| |  _ \| / __|  _ \ / _ \ | |	|"
+	@echo "| 	| | | | | | | | | | \__ \ | | |  __/ | |	|"
+	@echo "| 	|_| |_| |_|_|_| |_|_|___/_| |_|\___|_|_|	|"
+	@echo "|                                          		|"
 	@echo " ======================================================="
 	@echo " ========== Develop by ajurado- && fsantama ============"
 	@echo " ======================================================="
