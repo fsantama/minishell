@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/05 11:25:32 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:55:50 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <libgen.h>
 # include <signal.h>
 # include <fcntl.h>
+# include <errno.h>
 
 /*-----------------------------------HEADER-----------------------------------*/
 
@@ -53,26 +54,24 @@ typedef struct s_cmd
 	char	**args;
 }	t_cmd;
 
-typedef struct s_pipe
+typedef struct s_shell
 {
 	char	**envp;
 	char	**path;
-	int		fd_in;
-	int		fd_out;
-	int		tmp_in;
-	int		tmp_out;
-}	t_pipe;
+	t_cmd	*cmd;
+}	t_shell;
 
 /*---------------------------------FUNCTIONS----------------------------------*/
 
+							//* Env functions *//
+
 						//* Error control functions *//
 
-void	ft_error(char *error);
-
-							//* Pipex functions *//
+void	ft_error(char *error, int error_code);
 
 							//* Utils functions *//
 
+void	ft_printheader(char *str);
 // manageArrayUtils
 
 char	**ft_arraydup(char **array);
@@ -84,9 +83,9 @@ void	ft_printarray(char **array);
 
 char	**ft_getpath(char **envp);
 
-// pipeUtils
+// env_utils
 
-void	ft_initpipex(t_pipe *pipex, char **argv, char **envp);
+void	ft_initenv(t_shell *shell, char **argv, char **envp);
 
 // readlineUtils
 
