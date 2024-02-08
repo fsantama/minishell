@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/08 12:53:59 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/08 13:14:04 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int	main(int argc, char **argv, char **envp)
 	t_shell	shell;
 
 	atexit(leaks);
-	if (argc == 1)
+	if (argc == 1 && argv[0])
 	{
 		ft_printheader(HEADER);
-		ft_initenv(&shell, argv, envp);
+		ft_initenv(&shell, envp);
 		loop(&shell);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/08 12:55:50 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/08 13:09:56 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	**ft_getpath(char **envp);
 
 // env_utils
 
-void	ft_initenv(t_shell *shell, char **argv, char **envp);
+void	ft_initenv(t_shell *shell, char **envp);
 
 // readlineUtils
 
