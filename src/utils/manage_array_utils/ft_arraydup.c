@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:08 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/05 10:03:09 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:34:03 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 char	**ft_arraydup(char **array)
 {
 	char	**copy_array;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	if (array == NULL)

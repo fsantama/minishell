@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/02/05 10:25:32 by fsantama         ###   ########.fr        #
+#    Updated: 2024/02/08 12:57:15 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,13 @@ LIBFT 	=	./inc/Libft/libft.a
 
 SRCS	=	src/minishell.c \
 			src/utils/general_utils/ft_error.c \
+			src/utils/general_utils/ft_printheader.c \
 			src/utils/manage_array_utils/ft_arraydup.c \
 			src/utils/manage_array_utils/ft_arrayfree.c \
 			src/utils/manage_array_utils/ft_arraylen.c \
 			src/utils/manage_array_utils/ft_printarray.c \
 			src/utils/parser_utils/ft_getpath.c \
-			src/utils/pipe_utils/ft_initpipex.c \
+			src/utils/env_utils/ft_initenv.c \
 			src/utils/readline_utils/ft_getline.c \
 			
 			

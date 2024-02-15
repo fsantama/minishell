@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/05 10:04:38 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:15:26 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,36 @@ void	leaks(void)
 	system("leaks -q minishell");
 }
 
-void	loop(t_pipe *pipex)
+void	loop(t_shell *shell)
 {
 	char	*input;
 	char	*aux;
-	(void) pipex;
+	(void) shell;
 
 	while (1)
 	{
 		input = ft_getline(LINE);
 		if (!input)
-			ft_error(INVALID_INPUT);
+			ft_error(INVALID_INPUT, EPERM);
 		add_history(input);
 		aux = ft_strtrim(input, " ");
-//		if (ft_strlen(input) > 0 && ft_strlen(aux) > 0)
-//			printf("hola");
-//		else
-			free(input);
+		free(input);
 		free (aux);
-//		ft_arrayfree(pipex->path);
 	}
 }
 
 int	main(int argc, char **argv, char **envp)
 {
-	t_pipe	pipex;
+	t_shell	shell;
 
 	atexit(leaks);
-	printf("%s", HEADER);
-	if (argc == 1)
+	if (argc == 1 && argv[0])
 	{
-		ft_initpipex(&pipex, argv, envp);
-//		ft_printarray(pipex.path);
-//		ft_printarray(pipex.envp);
-		loop(&pipex);
+		ft_printheader(HEADER);
+		ft_initenv(&shell, envp);
+		loop(&shell);
 	}
 	else
-		ft_error(INVALID_ARGS);
+		ft_error(INVALID_ARGS, EPERM);
 	return (0);
 }
