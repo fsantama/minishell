@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/08 13:14:04 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:15:26 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	loop(t_shell *shell)
 	char	*input;
 	char	*aux;
 	(void) shell;
-	
+
 	while (1)
 	{
 		input = ft_getline(LINE);
