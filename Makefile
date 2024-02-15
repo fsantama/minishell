@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/02/08 12:57:15 by fsantama         ###   ########.fr        #
+#    Updated: 2024/02/15 17:45:56 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ SRCS	=	src/minishell.c \
 			src/utils/manage_array_utils/ft_printarray.c \
 			src/utils/parser_utils/ft_getpath.c \
 			src/utils/env_utils/ft_initenv.c \
+			src/utils/env_utils/ft_findpwd.c \
+			src/utils/env_utils/ft_findoldpwd.c \
 			src/utils/readline_utils/ft_getline.c \
 			
 			
