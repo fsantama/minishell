@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/08 13:09:56 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:45:33 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct s_shell
 {
 	char	**envp;
 	char	**path;
+	char	*pwd;
+	char	*old_pwd;
 	t_cmd	*cmd;
 }	t_shell;
 
@@ -86,6 +88,8 @@ char	**ft_getpath(char **envp);
 // env_utils
 
 void	ft_initenv(t_shell *shell, char **envp);
+char	*ft_findpwd(char **envp);
+char	*ft_findoldpwd(char **envp);
 
 // readlineUtils
 
