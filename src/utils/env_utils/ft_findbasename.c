@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printarray.c                                    :+:      :+:    :+:   */
+/*   ft_findbasename.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 10:03:16 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 11:54:51 by fsantama         ###   ########.fr       */
+/*   Created: 2024/02/15 18:12:17 by fsantama          #+#    #+#             */
+/*   Updated: 2024/02/16 12:51:00 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
 /**
- * @brief 		Prints the elements of a string array.
+ * @brief 			Extracts the base name from a given path string.
  * 
- * This function takes a string array as input and prints each element
- * of the array to the standard output. If the array is NULL, it prints
- * a message indicating that the array is NULL.
+ * @param	path	The path string from which to extract the base name.
+ * @return	char*	A pointer to the base name string.
  * 
- * @param	arr	The string array to be printed.
+ * NOTE: 			Memory is allocated for the returned string.
  */
-void	ft_printarray(char **arr)
+
+char	*ft_findbasename(const char *path)
 {
-	if (arr == NULL)
-	{
-		printf("Array is NULL\n");
-	}
-	for (int i = 0; arr[i] != NULL; i++)
-	{
-		printf("%s\n", arr[i]);
-	}
+	const char	*basename;
+
+	basename = ft_strrchr(path, '/');
+	if (basename == NULL)
+		return (ft_strdup(path));
+	return (ft_strdup(basename + 1));
 }

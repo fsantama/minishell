@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initenv.c                                       :+:      :+:    :+:   */
+/*   ft_findenv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:36 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 11:51:23 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:50:56 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  * NOTE: 			Memory is allocated.
  *       			The caller is responsible for freeing the allocated memory.
  */
-void	ft_initenv(t_shell *shell, char **envp)
+void	ft_findenv(t_shell *shell, char **envp)
 {
 	shell->envp = ft_arraydup(envp);
 	shell->pwd = ft_findpwd(shell->envp);

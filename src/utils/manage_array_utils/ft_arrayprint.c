@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_basename.c                                      :+:      :+:    :+:   */
+/*   ft_arrayprint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 18:12:17 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 11:51:42 by fsantama         ###   ########.fr       */
+/*   Created: 2024/02/05 10:03:16 by fsantama          #+#    #+#             */
+/*   Updated: 2024/02/16 12:50:39 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
 /**
- * @brief 			Extracts the base name from a given path string.
+ * @brief 		Prints the elements of a string array.
  * 
- * @param	path	The path string from which to extract the base name.
- * @return	char*	A pointer to the base name string.
+ * This function takes a string array as input and prints each element
+ * of the array to the standard output. If the array is NULL, it prints
+ * a message indicating that the array is NULL.
  * 
- * NOTE: 			Memory is allocated for the returned string.
+ * @param	arr	The string array to be printed.
  */
-
-char	*ft_basename(const char *path)
+void	ft_arrayprint(char **arr)
 {
-	const char	*basename;
-
-	basename = ft_strrchr(path, '/');
-	if (basename == NULL)
-		return (ft_strdup(path));
-	return (ft_strdup(basename + 1));
+	if (arr == NULL)
+	{
+		printf("Array is NULL\n");
+	}
+	for (int i = 0; arr[i] != NULL; i++)
+	{
+		printf("%s\n", arr[i]);
+	}
 }

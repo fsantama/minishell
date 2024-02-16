@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/15 19:00:57 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:57:25 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define HEADER "\n\
 \033[36;1m		    _       _     _          _ _ \n \
  	  _ __ ___ (_)_ __ (_)___| |__   ___| | |\n \
- 	 | '_ ` _  | | '_  | / __| '_  |/ _ | | |\n \
+ 	 |  _   _  | |  _  | / __|  _  |/ _ | | |\n \
  	 | | | | | | | | | | |__ | | | |  __/ | |\n \
  	 |_| |_| |_|_|_| |_|_|___/_| |_||___|_|_|\n \
 																		\n \
@@ -65,35 +65,34 @@ typedef struct s_shell
 
 /*---------------------------------FUNCTIONS----------------------------------*/
 
-							//* Env functions *//
+							//* Builtins functions *//
 
-						//* Error control functions *//
-
-void	ft_error(char *error, int error_code);
+//void    ft_pwd(void);
 
 							//* Utils functions *//
 
-void	ft_printheader(char *str);
-// manageArrayUtils
+// env_utils
+char	*ft_findbasename(const char *path);
+void	ft_findenv(t_shell *shell, char **envp);
+char	*ft_findoldpwd(char **envp);
+char	**ft_findpath(char **envp);
+char	*ft_findpwd(char **envp);
 
+// general_utils
+void	ft_error(char *error, int error_code);
+// void	ft_initshell(t_shell shell);
+void	ft_printheader(char *str);
+
+// manage_array_utils
 char	**ft_arraydup(char **array);
 void	ft_arrayfree(char **array);
 size_t	ft_arraylen(char **array);
-void	ft_printarray(char **array);
+void	ft_arrayprint(char **array);
 
-// parserUtils
+// parser_utils
 
-char	**ft_getpath(char **envp);
 
-// env_utils
-
-void	ft_initenv(t_shell *shell, char **envp);
-char	*ft_findpwd(char **envp);
-char	*ft_findoldpwd(char **envp);
-char	*ft_basename(const char *path);
-
-// readlineUtils
-
+// readline_utils
 char	*ft_getline(char *str);
 char	*ft_getprompt(char *str);
 
