@@ -6,12 +6,18 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:53:59 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 11:34:23 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:56:11 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
+/**
+ * @brief 			Generates a prompt string using the provided string.
+ * 
+ * @param	str		The string to be included in the prompt.
+ * @return	char* 	The generated prompt string.
+ */
 char	*ft_getprompt(char *str)
 {
 	char	*prompt;
