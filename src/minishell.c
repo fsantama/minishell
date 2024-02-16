@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/15 17:45:11 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:28:40 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	loop(t_shell *shell)
 
 	while (1)
 	{
-		input = ft_getline(LINE);
+		input = ft_getline(ft_getprompt(ft_basename(shell->pwd)));
 		if (!input)
 			ft_error(INVALID_INPUT, EPERM);
 		add_history(input);
@@ -44,7 +44,6 @@ int	main(int argc, char **argv, char **envp)
 	{
 		ft_printheader(HEADER);
 		ft_initenv(&shell, envp);
-		printf("%s", shell.old_pwd);
 		loop(&shell);
 	}
 	else

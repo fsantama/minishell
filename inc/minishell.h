@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/15 17:45:33 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:00:57 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,12 @@ char	**ft_getpath(char **envp);
 void	ft_initenv(t_shell *shell, char **envp);
 char	*ft_findpwd(char **envp);
 char	*ft_findoldpwd(char **envp);
+char	*ft_basename(const char *path);
 
 // readlineUtils
 
 char	*ft_getline(char *str);
+char	*ft_getprompt(char *str);
 
 /*-----------------------------------COLORS-----------------------------------*/
 
