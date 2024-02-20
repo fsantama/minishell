@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 13:01:12 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:05:25 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,20 @@ void	leaks(void)
 
 void	loop(t_shell *shell)
 {
-	char	*input;
-	char	*aux;
-	(void) shell;
+	char	*tmp;
 
 	while (1)
 	{
-		input = ft_getline(ft_getprompt(ft_findbasename(shell->pwd)));
-		if (!input)
+		tmp = ft_getline(ft_getprompt(ft_findbasename(shell->pwd)));
+		if (!tmp)
 			ft_error(INVALID_INPUT, EPERM);
-		add_history(input);
-		aux = ft_strtrim(input, " ");
-		free(input);
-		free (aux);
+		else
+		{
+			add_history(tmp);
+			shell->input = ft_strtrim(tmp, " ");
+		}
+			free (tmp);
+			free(shell->input);
 	}
 }
 
