@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/20 16:05:25 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:09:35 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ void	loop(t_shell *shell)
 		{
 			add_history(tmp);
 			shell->input = ft_strtrim(tmp, " ");
+			ft_parserinput(shell);
 		}
-			free (tmp);
-			free(shell->input);
+		free (tmp);
+		free(shell->input);
 	}
 }
 

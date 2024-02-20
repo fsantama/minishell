@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/20 15:52:03 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:12:48 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ typedef struct s_shell
 
 //void    ft_pwd(void);
 
+							//* Parser functions *//
+
+void	ft_parserinput(t_shell *shell);
+							
 							//* Utils functions *//
 
 // env_utils

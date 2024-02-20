@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/02/16 13:00:29 by fsantama         ###   ########.fr        #
+#    Updated: 2024/02/20 17:07:29 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ LIBFT 	=	./inc/Libft/libft.a
 # =============================================================================#
 
 SRCS	=	src/minishell.c \
+			src/parser/ft_parserinput.c \
 			src/utils/env_utils/ft_findbasename.c \
 			src/utils/env_utils/ft_findenv.c \
 			src/utils/env_utils/ft_findoldpwd.c \
