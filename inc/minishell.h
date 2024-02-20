@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 12:57:25 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:52:03 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_shell
 	char	**path;
 	char	*pwd;
 	char	*old_pwd;
+	char 	*input;
 	t_cmd	*cmd;
 }	t_shell;
 
