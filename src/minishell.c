@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/23 11:50:02 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:00:48 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	leaks(void)
 void	loop(t_shell *shell)
 {
 	char	*tmp;
-	char **split;
+//	char **words;
+char **split;
+
 
 	while (1)
 	{
@@ -33,7 +35,18 @@ void	loop(t_shell *shell)
 			shell->input = ft_strtrim(tmp, " ");
 			split = ft_splitshell(shell->input, '|');
 			ft_arrayprint(split);
-			//ft_parserinput(shell);
+/*words = ft_splitshell(shell->input, '|');
+if (words) {
+    int count = 0;
+    while (words[count]) {
+        printf("Word %d: %s\n", count + 1, words[count]);
+        count++;
+    }
+    printf("Total words: %d\n", count);
+} else {
+    printf("Failed to split input\n");
+}
+*/
 		}
 		free (tmp);
 		free(shell->input);
