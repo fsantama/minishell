@@ -6,12 +6,12 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:33 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/23 12:26:48 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:49:15 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
-|
+
 int	foundquotes(char *str, int *i)
 {
 	char	com;
@@ -46,6 +46,7 @@ static int	countwords(char *str, char s)
 			{
 				if (foundquotes(str, &i))
 				{
+					i++;
 				}
 				else
 				{
