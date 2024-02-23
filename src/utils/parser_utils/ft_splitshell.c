@@ -6,29 +6,44 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:33 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/23 13:22:05 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:45:33 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
-int	foundquotes(char *str, int *i)
+int	findquotes(char *str, int *i)
 {
 	char	com;
 
-	com = 0;
-	if ((str[*i] == '\'' || str[*i] == '"') && str[*i] != '\0')
+	com = str[*i];
+	if ((com == '\'' || com == '"') && str[*i] != '\0')
 	{
-		com = str[*i];
 		(*i)++;
-		while (str[*i] != '\0' && str[*i] != com)
+		while (str[*i] != com && str[*i] != '\0')
+			(*i)++;
+		if (str[*i] == com)
 			(*i)++;
 		return (1);
 	}
 	return (0);
 }
 
-static int	countwords(char *str, char s)
+void	findword(char *str, char c, int *i)
+{
+	if (str[*i] != c && str[*i] != 0)
+	{
+		while (str[*i] != 0 && str[*i] != c)
+		{
+			findquotes(str, i);
+			*i = *i + 1;
+		}
+//		return (1);
+	}
+//	return (0);
+}
+
+static int	countwords(char *str, char c)
 {
 	int	i;
 	int	n;
@@ -37,22 +52,12 @@ static int	countwords(char *str, char s)
 	n = 0;
 	while (str[i])
 	{
-		while (str[i] == s && str[i] != '\0')
+		if (str[i] == c && str[i] != '\0')
 			i++;
-		if (str[i] != '\0')
+		else if (str[i])
 		{
+			findword(str, c, &i);
 			n++;
-			while (str[i] != '\0' && str[i] != s)
-			{
-				if (foundquotes(str, &i))
-				{
-					i++;
-				}
-				else
-				{
-					i++;
-				}
-			}
 		}
 	}
 	return (n);
@@ -80,9 +85,7 @@ char	**ft_splitshell(char *str, char s)
 			len = i;
 			while (str[i] != '\0' && str[i] != s)
 			{
-				if (foundquotes(str, &i))
-					i++;
-				else
+				if (!findquotes(str, &i))
 					i++;
 			}
 			split[is++] = ft_substr(str, len, i - len);
@@ -92,6 +95,9 @@ char	**ft_splitshell(char *str, char s)
 				return (NULL);
 			}
 		}
+		i++;
 	}
 	return (split);
 }
+
+
