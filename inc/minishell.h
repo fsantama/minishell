@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/20 17:40:08 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:27:37 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	ft_arrayprint(char **array);
 int		ft_checkquotes(t_shell *shell);
 int		ft_checkpipe(t_shell *shell);
 int		ft_checkredirect(t_shell *shell);
+char	**ft_splitshell(char *str, char s);
 
 // readline_utils
 char	*ft_getline(char *str);

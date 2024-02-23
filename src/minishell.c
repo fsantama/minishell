@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/20 17:41:16 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:50:02 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	leaks(void)
 void	loop(t_shell *shell)
 {
 	char	*tmp;
+	char **split;
 
 	while (1)
 	{
@@ -30,7 +31,9 @@ void	loop(t_shell *shell)
 		{
 			add_history(tmp);
 			shell->input = ft_strtrim(tmp, " ");
-			ft_parserinput(shell);
+			split = ft_splitshell(shell->input, '|');
+			ft_arrayprint(split);
+			//ft_parserinput(shell);
 		}
 		free (tmp);
 		free(shell->input);
