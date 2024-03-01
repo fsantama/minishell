@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_initshell.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 10:08:04 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/08 12:47:09 by fsantama         ###   ########.fr       */
+/*   Created: 2024/02/16 12:36:38 by fsantama          #+#    #+#             */
+/*   Updated: 2024/02/16 12:38:51 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
-/**
- * @brief			Prints an error message. 
- *					Displays additional details about last error using perror.
- *					Exits the program with a failure status.
- * 
- * @param	error	A pointer to the error message string.
- */
-void	ft_error(char *error, int error_code)
+void	ft_initshell(t_shell shell)
 {
-	(void) error_code;
-	//return (perror(ft_strjoin(strerror(error_code), error)), exit(EXIT_FAILURE));
-	return (perror(error), exit(EXIT_FAILURE));
-
+	// Añadiremos los valores iniciales de las variables que estén en
+	// nuestra estructura y necesitemos utilizar, como las señales, 
+	// comandos o lo que sea.
 }

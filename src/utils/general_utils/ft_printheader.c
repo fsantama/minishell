@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_printheader.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 10:08:04 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/08 12:47:09 by fsantama         ###   ########.fr       */
+/*   Created: 2024/02/08 12:52:02 by fsantama          #+#    #+#             */
+/*   Updated: 2024/02/16 11:47:34 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
 /**
- * @brief			Prints an error message. 
- *					Displays additional details about last error using perror.
- *					Exits the program with a failure status.
+ * @brief		Prints the provided string as the header.
  * 
- * @param	error	A pointer to the error message string.
+ * @param	str	The string to be printed as the header.
  */
-void	ft_error(char *error, int error_code)
+void	ft_printheader(char *str)
 {
-	(void) error_code;
-	//return (perror(ft_strjoin(strerror(error_code), error)), exit(EXIT_FAILURE));
-	return (perror(error), exit(EXIT_FAILURE));
-
+	printf("%s", str);
 }

@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/05 11:25:32 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:52:03 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@
 # include <libgen.h>
 # include <signal.h>
 # include <fcntl.h>
+# include <errno.h>
 
 /*-----------------------------------HEADER-----------------------------------*/
 
 # define HEADER "\n\
 \033[36;1m		    _       _     _          _ _ \n \
  	  _ __ ___ (_)_ __ (_)___| |__   ___| | |\n \
- 	 | '_ ` _  | | '_  | / __| '_  |/ _ | | |\n \
+ 	 |  _   _  | |  _  | / __|  _  |/ _ | | |\n \
  	 | | | | | | | | | | |__ | | | |  __/ | |\n \
  	 |_| |_| |_|_|_| |_|_|___/_| |_||___|_|_|\n \
 																		\n \
@@ -53,44 +54,48 @@ typedef struct s_cmd
 	char	**args;
 }	t_cmd;
 
-typedef struct s_pipe
+typedef struct s_shell
 {
 	char	**envp;
 	char	**path;
-	int		fd_in;
-	int		fd_out;
-	int		tmp_in;
-	int		tmp_out;
-}	t_pipe;
+	char	*pwd;
+	char	*old_pwd;
+	char 	*input;
+	t_cmd	*cmd;
+}	t_shell;
 
 /*---------------------------------FUNCTIONS----------------------------------*/
 
-						//* Error control functions *//
+							//* Builtins functions *//
 
-void	ft_error(char *error);
-
-							//* Pipex functions *//
+//void    ft_pwd(void);
 
 							//* Utils functions *//
 
-// manageArrayUtils
+// env_utils
+char	*ft_findbasename(const char *path);
+void	ft_findenv(t_shell *shell, char **envp);
+char	*ft_findoldpwd(char **envp);
+char	**ft_findpath(char **envp);
+char	*ft_findpwd(char **envp);
 
+// general_utils
+void	ft_error(char *error, int error_code);
+// void	ft_initshell(t_shell shell);
+void	ft_printheader(char *str);
+
+// manage_array_utils
 char	**ft_arraydup(char **array);
 void	ft_arrayfree(char **array);
 size_t	ft_arraylen(char **array);
-void	ft_printarray(char **array);
+void	ft_arrayprint(char **array);
 
-// parserUtils
+// parser_utils
 
-char	**ft_getpath(char **envp);
 
-// pipeUtils
-
-void	ft_initpipex(t_pipe *pipex, char **argv, char **envp);
-
-// readlineUtils
-
+// readline_utils
 char	*ft_getline(char *str);
+char	*ft_getprompt(char *str);
 
 /*-----------------------------------COLORS-----------------------------------*/
 
