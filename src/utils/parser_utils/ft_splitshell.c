@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:33 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/23 15:45:33 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/05 11:20:11 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,12 @@ int	findquotes(char *str, int *i)
 		(*i)++;
 		while (str[*i] != com && str[*i] != '\0')
 			(*i)++;
-		if (str[*i] == com)
-			(*i)++;
 		return (1);
 	}
 	return (0);
 }
 
-void	findword(char *str, char c, int *i)
+static int	findword(char *str, char c, int *i)
 {
 	if (str[*i] != c && str[*i] != 0)
 	{
@@ -38,9 +36,9 @@ void	findword(char *str, char c, int *i)
 			findquotes(str, i);
 			*i = *i + 1;
 		}
-//		return (1);
+		return (1);
 	}
-//	return (0);
+	return (0);
 }
 
 static int	countwords(char *str, char c)
@@ -52,13 +50,12 @@ static int	countwords(char *str, char c)
 	n = 0;
 	while (str[i])
 	{
-		if (str[i] == c && str[i] != '\0')
+		while (str[i] == c && str[i] != '\0')
 			i++;
-		else if (str[i])
-		{
-			findword(str, c, &i);
-			n++;
-		}
+		if (str[i])
+			n += findword(str, c, &i);
+		if (str[i])
+			findquotes(str, &i);
 	}
 	return (n);
 }
@@ -70,34 +67,22 @@ char	**ft_splitshell(char *str, char s)
 	int		len;
 	char	**split;
 
-	i = 0;
+	i = -1;
 	is = 0;
 	len = 0;
 	split = ft_calloc(sizeof(char *), countwords(str, s) + 1);
 	if (!split)
 		return (NULL);
-	while (str[i])
+	while (str[++i])
 	{
 		while (str[i] == s && str[i] != '\0')
 			i++;
-		if (str[i] != '\0')
+		len = i;
+		if (findword(str, s, &i))
 		{
-			len = i;
-			while (str[i] != '\0' && str[i] != s)
-			{
-				if (!findquotes(str, &i))
-					i++;
-			}
 			split[is++] = ft_substr(str, len, i - len);
-			if (!split[is - 1])
-			{
-				ft_arrayfree(split);
-				return (NULL);
-			}
+			len = i;
 		}
-		i++;
 	}
 	return (split);
 }
-
-
