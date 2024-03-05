@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/23 13:15:09 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:51:25 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ void	loop(t_shell *shell)
 		tmp = ft_getline(ft_getprompt(ft_findbasename(shell->pwd)));
 		if (!tmp)
 			ft_error(INVALID_INPUT, EPERM);
-		else
-		{
-			add_history(tmp);
-			shell->input = ft_strtrim(tmp, " ");
-			ft_checksplit(ft_splitshell(shell->input, '|'));
-		}
+		
+		add_history(tmp);
+		shell->input = ft_strtrim(tmp, " ");
+//		ft_checksplit(ft_splitshell(shell->input, '|'));
+		ft_parserinput(shell->input, shell);
 		free (tmp);
 		free(shell->input);
 	}
