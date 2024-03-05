@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:24:01 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 14:54:21 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:50:40 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	parsersyntax(char *input, t_shell *shell)
 	(void) shell;
 //	(void) input;
 	if (ft_checkquotes(input) == 0 && ft_checkpipe(input) == 0
-		&& ft_checkredirect(input))
+		&& ft_checkredirect(input) == 0)
 		return (0);
 	else
 		return (1);
