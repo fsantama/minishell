@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/20 17:40:08 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:26:06 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_shell
 	char	*pwd;
 	char	*old_pwd;
 	char 	*input;
+	int		exit;
 	t_cmd	*cmd;
 }	t_shell;
 
@@ -72,7 +73,7 @@ typedef struct s_shell
 
 							//* Parser functions *//
 
-void	ft_parserinput(t_shell *shell);
+void	ft_parserinput(char *input, t_shell *shell);
 							
 							//* Utils functions *//
 
@@ -91,14 +92,18 @@ void	ft_printheader(char *str);
 // manage_array_utils
 char	**ft_arraydup(char **array);
 void	ft_arrayfree(char **array);
-size_t	ft_arraylen(char **array);
+int		ft_arraylen(char **array);
 void	ft_arrayprint(char **array);
 
 // parser_utils
 
-int		ft_checkquotes(t_shell *shell);
-int		ft_checkpipe(t_shell *shell);
-int		ft_checkredirect(t_shell *shell);
+int		findquotes(char *str, int *i);
+int		ft_checkquotes(char *input);
+int		ft_checkpipe(char *input);
+int		ft_checkredirect(char *input);
+void	ft_checksplit(char **split);
+char	**ft_splitshell(char *str, char s);
+char	**ft_cleanspaces(char **split);
 
 // readline_utils
 char	*ft_getline(char *str);

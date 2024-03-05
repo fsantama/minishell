@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arraylen.c                                      :+:      :+:    :+:   */
+/*   ft_checksplit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 10:03:13 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 13:20:23 by fsantama         ###   ########.fr       */
+/*   Created: 2024/02/23 13:03:29 by fsantama          #+#    #+#             */
+/*   Updated: 2024/02/23 13:11:51 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
-/**
- *	@brief			Calculates the length of an array of strings.
- * 
- *	@param	array	A pointer to the array of strings.
- *	@return			size_t The number of strings in the array.
- */
-int	ft_arraylen(char **array)
+void	ft_checksplit(char **split)
 {
 	int	i;
 
 	i = 0;
-	if (array == NULL)
-		return (0);
-	while (array[i])
-		i++;
-	return (i);
+	if (split)
+	{
+		while (split[i])
+		{
+			printf("Word %d: %s\n", i + 1, split[i]);
+			i++;
+		}
+		printf("Total words: %d\n", i);
+	}
+	else
+		printf("Failed to split input\n");
 }
+

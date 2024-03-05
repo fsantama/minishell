@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:30 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 12:50:53 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:21:19 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 char	**ft_findpath(char **envp)
 {
 	char	**path;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	while (envp[i] && ft_strnstr(envp[i], "PATH=", 5) == 0)
