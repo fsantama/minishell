@@ -6,14 +6,14 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:46:33 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/20 17:47:28 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:28:52 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
-int	ft_checkredirect(t_shell *shell)
+int	ft_checkredirect(char *input)
 {
-	(void) shell;
+	(void) input;
 	return (0);
 }

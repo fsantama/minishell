@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:33 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 11:20:11 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:50:58 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ char	**ft_splitshell(char *str, char s)
 	int		len;
 	char	**split;
 
-	i = -1;
+	i = 0;
 	is = 0;
 	len = 0;
 	split = ft_calloc(sizeof(char *), countwords(str, s) + 1);
 	if (!split)
 		return (NULL);
-	while (str[++i])
+	while (str[i])
 	{
 		while (str[i] == s && str[i] != '\0')
 			i++;
@@ -83,6 +83,21 @@ char	**ft_splitshell(char *str, char s)
 			split[is++] = ft_substr(str, len, i - len);
 			len = i;
 		}
+	}
+	return (split);
+}
+
+char	**ft_cleanspaces(char **split)
+{
+	int		i;
+	char	*trim;
+
+	i = -1;
+	while (split[++i])
+	{
+		trim = ft_strtrim(split[i], " ");
+		free(split[i]);
+		split[i] = trim;
 	}
 	return (split);
 }
