@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:24:01 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 16:50:40 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:35:02 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ int	parsersyntax(char *input, t_shell *shell)
 
 void	ft_parserinput(char *input, t_shell *shell)
 {
+	char	**split_pipe;
+	
 	if (parsersyntax(input, shell) == 0)
 	{
-		write(1, "entra", 5);
+		split_pipe = ft_splitshell(input, '|');
+		split_pipe = ft_cleanspaces(split_pipe);
 		// sigo con la lógica de parseo
 	}
 	else
