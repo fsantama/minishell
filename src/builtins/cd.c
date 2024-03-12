@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 16:39:34 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 16:40:51 by fsantama         ###   ########.fr       */
+/*   Created: 2024/03/05 16:39:39 by fsantama          #+#    #+#             */
+/*   Updated: 2024/03/05 16:39:40 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
-void	ft_pwd(void)
+void    ft_cd(t_cmd *cmd, t_pipe *pipex)
 {
-	char	*path;
+    char    *curr_path;
+    char    *new_path;
 
-	path = getcwd(NULL, 0);
-	ft_putendl_fd(path, 1);
-	free(path);
+    curr_path = getcwd(NULL, 0);
+    new_path = ft_strdup(cmd_args[1]);
+    if (!new_path)
+        //Devolver la carpeta raiz
+	else if (ft_strncmp(path, "-", 2) == 0)
+		//otro
+	if (chdir(new_path))
+		printf("MiniShell: cd: %s: No such file or directory\n", cmd->args[1]);
+    
 }
