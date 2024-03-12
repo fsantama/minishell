@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:13 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/05 10:10:27 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:20:23 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
  *	@param	array	A pointer to the array of strings.
  *	@return			size_t The number of strings in the array.
  */
-size_t	ft_arraylen(char **array)
+int	ft_arraylen(char **array)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (array == NULL)

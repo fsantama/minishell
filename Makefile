@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/02/20 17:07:29 by fsantama         ###   ########.fr        #
+#    Updated: 2024/02/23 13:11:36 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,11 @@ SRCS	=	src/minishell.c \
 			src/utils/manage_array_utils/ft_arrayfree.c \
 			src/utils/manage_array_utils/ft_arraylen.c \
 			src/utils/manage_array_utils/ft_arrayprint.c \
+			src/utils/parser_utils/ft_checkpipe.c \
+			src/utils/parser_utils/ft_checkquotes.c \
+			src/utils/parser_utils/ft_checkredirect.c \
+			src/utils/parser_utils/ft_checksplit.c \
+			src/utils/parser_utils/ft_splitshell.c \
 			src/utils/readline_utils/ft_getline.c \
 			src/utils/readline_utils/ft_getprompt.c \
 			
