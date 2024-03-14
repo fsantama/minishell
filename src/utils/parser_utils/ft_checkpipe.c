@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:45:39 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 14:26:28 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:30:25 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int	ft_countpipe(char *input)
 	return (npipe);
 }
 
-static int	ft_checkn_pipes(char *input, char **split_pi)
+static int	ft_checkn_pipes(char *input, char **split_pipe)
 {
-	if (ft_countpipe(input) >= ft_arraylen(split_pi) || input[0] == '|'
+	if (ft_countpipe(input) > ft_arraylen(split_pipe) || input[0] == '|'
 		|| ft_consecutivepipes(input) == 1)
 	{
 		ft_putendl_fd("Syntax error near unexpected token '|'", 2);

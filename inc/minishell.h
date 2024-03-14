@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 14:26:06 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:36:00 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,11 @@
 
 # define INVALID_ARGS "Usage: ./minishell\n"
 # define INVALID_INPUT "Closing shell\n"
+# define CMD_ERROR "Command not found\n"
+# define PIPE_ERROR "Pipe error\n"
+# define HEREDOC_FILE "/tmp/__spedismaracatermicers__"
 
-/*-----------------------------------ERRORS-----------------------------------*/
+/*----------------------------------READLINE----------------------------------*/
 
 # define LINE "minishell > "
 
@@ -52,6 +55,10 @@ typedef struct s_cmd
 {
 	char	*cmd;
 	char	**args;
+	char	*infile;
+	int		infile_redirect;
+	char	*outfile;
+	int		outfile_redirect;
 }	t_cmd;
 
 typedef struct s_shell
@@ -60,16 +67,34 @@ typedef struct s_shell
 	char	**path;
 	char	*pwd;
 	char	*old_pwd;
-	char 	*input;
+	char	*input;
 	int		exit;
+	int		n_cmd;
 	t_cmd	*cmd;
 }	t_shell;
+
+typedef enum s_typetoken
+{
+	WORD,
+	RED_OUT,
+	RED_IN,
+	RED_APPEND,
+	RED_HERE,
+}	t_typetoken;
 
 /*---------------------------------FUNCTIONS----------------------------------*/
 
 							//* Builtins functions *//
 
 //void    ft_pwd(void);
+
+							//* Executor functions *//
+							
+char	*ft_expandit(char *input, t_shell *shell, int expand);
+
+							//* Lexer functions *//
+
+t_cmd	*ft_getinput(char *input, t_shell *shell);
 
 							//* Parser functions *//
 
@@ -85,9 +110,16 @@ char	**ft_findpath(char **envp);
 char	*ft_findpwd(char **envp);
 
 // general_utils
+char	**ft_addarray(char *str, char **array);
 void	ft_error(char *error, int error_code);
 // void	ft_initshell(t_shell shell);
 void	ft_printheader(char *str);
+char	*ft_strjoinfree(char *s1, char const *s2);
+
+//lexer_utils
+char	*ft_getname(char *cmd, int *j);
+char	*ft_getcmd(t_shell shell, char *cmd);
+void	ft_heredoc(t_cmd *cmd);
 
 // manage_array_utils
 char	**ft_arraydup(char **array);
@@ -98,6 +130,7 @@ void	ft_arrayprint(char **array);
 // parser_utils
 
 int		findquotes(char *str, int *i);
+int		ft_countpipe(char *input);
 int		ft_checkquotes(char *input);
 int		ft_checkpipe(char *input);
 int		ft_checkredirect(char *input);

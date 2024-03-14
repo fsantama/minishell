@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 14:51:25 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:49:43 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	loop(t_shell *shell)
 //		ft_checksplit(ft_splitshell(shell->input, '|'));
 		ft_parserinput(shell->input, shell);
 		free (tmp);
-		free(shell->input);
+//		free(shell->input);
 	}
 }
 
