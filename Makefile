@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/02/23 13:11:36 by fsantama         ###   ########.fr        #
+#    Updated: 2024/03/14 13:00:27 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,20 @@ LIBFT 	=	./inc/Libft/libft.a
 # =============================================================================#
 
 SRCS	=	src/minishell.c \
+			src/executor/ft_expand.c \
+			src/lexer/ft_getinput.c \
 			src/parser/ft_parserinput.c \
 			src/utils/env_utils/ft_findbasename.c \
 			src/utils/env_utils/ft_findenv.c \
 			src/utils/env_utils/ft_findoldpwd.c \
 			src/utils/env_utils/ft_findpath.c \
 			src/utils/env_utils/ft_findpwd.c \
+			src/utils/general_utils/ft_addarray.c \
 			src/utils/general_utils/ft_error.c \
 			src/utils/general_utils/ft_printheader.c \
+			src/utils/general_utils/ft_strjoinfree.c \
+			src/utils/lexer_utils/ft_addcmd.c \
+			src/utils/lexer_utils/ft_getcmd.c \
 			src/utils/manage_array_utils/ft_arraydup.c \
 			src/utils/manage_array_utils/ft_arrayfree.c \
 			src/utils/manage_array_utils/ft_arraylen.c \
