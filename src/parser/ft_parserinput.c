@@ -6,12 +6,12 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:24:01 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/14 16:53:04 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:05:58 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
-/*
+
 static int	ft_existcmd(t_cmd *cmd, t_shell *shell)
 {
 	int	i;
@@ -21,14 +21,14 @@ static int	ft_existcmd(t_cmd *cmd, t_shell *shell)
 	{
 		if (!cmd[i].cmd)
 		{
-//			err_msg_sintax("Command not found\n");
+			ft_putstr_fd("Command not found\n", 2);
 			return (0);
 		}
 		i++;
 	}
 	return (1);
 }
-*/
+
 int	parsersyntax(char *input, t_shell *shell)
 {
 	if (ft_checkquotes(input) == 0 && ft_checkpipe(input) == 0
@@ -71,7 +71,7 @@ void	ft_parserinput(char *input, t_shell *shell)
 {
 	char	**split_pipe;
 	char	*new_input;
-//	t_cmd	*cmd;
+	t_cmd	*cmd;
 
 //	split_pipe = NULL;
 	new_input = NULL;
@@ -82,12 +82,12 @@ void	ft_parserinput(char *input, t_shell *shell)
 		shell->n_cmd = ft_arraylen(split_pipe);
 		input = ft_waitpipe(input, shell, split_pipe);
 		new_input = ft_expandit(new_input, shell, 0);
-//		cmd = ft_getinput(new_input, shell);
+		cmd = ft_getinput(new_input, shell);
 		free(new_input);
 		free (input);
 //		ft_arrayfree(split_pipe);
-//		if (ft_existcmd(cmd, shell) == 1)
-//			printf("hola");
+		if (ft_existcmd(cmd, shell) == 1)
+			printf("hola");
 	//		child_generator(shell, cmd);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:33 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 14:50:58 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:03:16 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	countwords(char *str, char c)
 
 	i = 0;
 	n = 0;
-	while (str[i])
+	while (str && str[i])
 	{
 		while (str[i] == c && str[i] != '\0')
 			i++;
@@ -73,7 +73,7 @@ char	**ft_splitshell(char *str, char s)
 	split = ft_calloc(sizeof(char *), countwords(str, s) + 1);
 	if (!split)
 		return (NULL);
-	while (str[i])
+	while (str && str[i])
 	{
 		while (str[i] == s && str[i] != '\0')
 			i++;

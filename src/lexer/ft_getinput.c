@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:19:10 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/14 12:40:50 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:05:51 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void	ft_getdatas(t_cmd *cmd, char *one_cmd, t_shell *shell)
 
 	i = 0;
 	status = WORD;
-	while (one_cmd[i])
+	while (one_cmd && one_cmd[i])
 	{
 		status = ft_redirectstatus(one_cmd[i], cmd, status);
 		if (one_cmd[i] != ' ' && one_cmd[i] != '\t' && one_cmd[i] != '<'
@@ -102,10 +102,11 @@ t_cmd	*ft_getinput(char *input, t_shell *shell)
 	char	**split_pipe;
 	t_cmd	*cmd;
 
+//	printf("Entro");
 	i = 0;
 	split_pipe = ft_splitshell(input, '|');
 	split_pipe = ft_cleanspaces(split_pipe);
-	cmd = malloc(sizeof(t_cmd) * shell->n_cmd);
+	cmd = ft_calloc(sizeof(t_cmd), shell->n_cmd);
 	while (i < shell->n_cmd)
 	{
 		cmd[i].infile_redirect = 0;

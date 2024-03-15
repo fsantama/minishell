@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/14 16:36:00 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:15:50 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,12 @@ typedef struct s_shell
 	char	*input;
 	int		exit;
 	int		n_cmd;
-	t_cmd	*cmd;
+	int		tube[2];
+	int		tmp_in;
+	int		tmp_out;
+	int		fd_in;
+	int		fd_out;
+//	t_cmd	*cmd;
 }	t_shell;
 
 typedef enum s_typetoken
@@ -91,6 +96,7 @@ typedef enum s_typetoken
 							//* Executor functions *//
 							
 char	*ft_expandit(char *input, t_shell *shell, int expand);
+void	child_generator(t_shell *shell, t_cmd *cmd);
 
 							//* Lexer functions *//
 

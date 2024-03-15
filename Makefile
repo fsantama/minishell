@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/03/14 13:00:27 by fsantama         ###   ########.fr        #
+#    Updated: 2024/03/15 11:55:26 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 # PROGRAM FOR COMPILING C PROGRAMS
 CC 		=	gcc
 # C COMPILER FLAGS
-CFLAGS =	-Werror -Wall -Wextra
+CFLAGS =	-Werror -Wall -Wextra -g3
 
 NAME 	=	minishell
 LIBFT 	=	./inc/Libft/libft.a
@@ -29,6 +29,7 @@ LIBFT 	=	./inc/Libft/libft.a
 
 SRCS	=	src/minishell.c \
 			src/executor/ft_expand.c \
+			src/executor/ft_pipe.c \
 			src/lexer/ft_getinput.c \
 			src/parser/ft_parserinput.c \
 			src/utils/env_utils/ft_findbasename.c \

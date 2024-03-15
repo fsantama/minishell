@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:36 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/14 16:23:44 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:35:38 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,23 +119,6 @@ char	*ft_expand_value(int *i, char *input, t_shell *shell)
 	return (aux);
 }
 
-/**
- * @brief Recibe la entrada de datos escrita por el usuario en minishell
- * comprueba si hay variables de entorno a expandir por su valor y devuelve
- * el input con el valor de las variables localizadas.
- * * Si la variable escrita está entre comillas simples, no se expande su valor.
- * * Si la variable escrita está entre comillas dobles, sí expande su valor.
- * * Si la variable no se encuentra entre comillas, sí expande su valor.
- * La función se llama de forma recursiva cuando encuentra una variable entre 
- * comillas dobles, en ese caso expande el valor enviando 1 a la propia función
- * para recibir el string entre comillado doble con las variables expandidas.
- * 
- * 
- * @param input string con la entrada del usuario a minishell
- * @param pipex estructura con las variables de entorno de minishell
- * @param expand 1 si hay que expandir, 0 si no hay que expandir
- * @return char* string con el resultado de expandir las variables en el input
- */
 char	*ft_expandit(char *input, t_shell *shell, int expand)
 {
 	int		i;
