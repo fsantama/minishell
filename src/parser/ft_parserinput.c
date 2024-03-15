@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:24:01 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 12:05:58 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:08:46 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,7 @@ void	ft_parserinput(char *input, t_shell *shell)
 		free (input);
 //		ft_arrayfree(split_pipe);
 		if (ft_existcmd(cmd, shell) == 1)
-			printf("hola");
-	//		child_generator(shell, cmd);
+			child_generator(shell, cmd);
 	}
 	else
 		shell->exit = 258;

@@ -6,11 +6,9 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:30 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 11:52:50 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:15:15 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
 
 #include "../../inc/minishell.h"
 
@@ -105,4 +103,3 @@ void	child_generator(t_shell *shell, t_cmd *cmd)
 	close(display_fd);
 	ft_free_cmds(cmd, shell);
 }
-*/

@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 11:15:50 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:08:34 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,11 @@ typedef enum s_typetoken
 							//* Builtins functions *//
 
 //void    ft_pwd(void);
-
+int	builting(t_cmd *cmd, t_shell *shell);
+void    ft_cd(t_cmd *cmd, t_shell *shell);
+void	ft_echo(t_cmd *cmd);
+void	ft_env(t_cmd *cmd, t_shell *shell);
+void	ft_pwd(void);
 							//* Executor functions *//
 							
 char	*ft_expandit(char *input, t_shell *shell, int expand);
@@ -112,12 +116,18 @@ void	ft_parserinput(char *input, t_shell *shell);
 char	*ft_findbasename(const char *path);
 void	ft_findenv(t_shell *shell, char **envp);
 char	*ft_findoldpwd(char **envp);
+
+//	executor_utils
+int		redir_check(t_shell *shell, t_cmd *cmd, int i);
+
 char	**ft_findpath(char **envp);
 char	*ft_findpwd(char **envp);
 
 // general_utils
 char	**ft_addarray(char *str, char **array);
 void	ft_error(char *error, int error_code);
+void	ft_free_cmds(t_cmd *cmd, t_shell *shell);
+
 // void	ft_initshell(t_shell shell);
 void	ft_printheader(char *str);
 char	*ft_strjoinfree(char *s1, char const *s2);
