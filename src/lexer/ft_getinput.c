@@ -45,9 +45,7 @@ static void	ft_fillcmd(char *one_cmd, int *i, t_shell *shell, t_cmd *cmd)
 		cmd->cmd = ft_getcmd(*shell, cmd->cmd);
 	}
 	else
-	{
 		cmd->args = ft_addarray(ft_getname(&one_cmd[*i], i), cmd->args);
-	}
 }
 
 static void	ft_fillfile(char *one_cmd, int *i, t_cmd *cmd, t_typetoken redtype)

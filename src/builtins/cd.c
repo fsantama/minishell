@@ -14,16 +14,25 @@
 
 void    ft_cd(t_cmd *cmd, t_shell *shell)
 {
-    (void) shell;
-    char    *curr_path;
-    char    *new_path;
+	char    *curr_path;
+	char    *new_path;
+	char	*aux;
 
-    curr_path = getcwd(NULL, 0);
-    new_path = ft_strdup(cmd->args[1]);
-    if (!new_path)
-        //Devolver la carpeta raiz
-    if (ft_strncmp(new_path, "-", 2) == 0)
-		//otro
+	curr_path = getcwd(NULL, 0);
+	new_path = ft_strdup(cmd->args[1]);
+	if (!new_path)
+        new_path = ft_getenv("HOME", shell);
+	if (ft_strncmp(new_path, "-", 2) == 0)
+		new_path = ft_getenv("OLDPWD", shell);
 	if (chdir(new_path))
-		printf("MiniShell: cd: %s: No such file or directory\n", cmd->args[1]);
+		printf("cd: %s: No such file or directory\n", cmd->args[1]);
+	else
+	{
+		shell->envp = delete_env_item(\
+		find_env_pos("OLDPWD", shell->envp), shell->envp);
+		aux = ft_strjoin("OLDPWD=", curr_path);
+		free(curr_path);
+		shell->envp = ft_addarray(aux, shell->envp);
+	}
+	free(new_path);
 }

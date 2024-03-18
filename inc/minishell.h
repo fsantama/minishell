@@ -91,12 +91,19 @@ typedef enum s_typetoken
 
 							//* Builtins functions *//
 
-//void    ft_pwd(void);
-int	builting(t_cmd *cmd, t_shell *shell);
+// builtin_utils
+int	find_env_pos(char *str, char **envp);
+char	**delete_env_item(int pos, char **array);
+
+int		builting(t_cmd *cmd, t_shell *shell);
 void    ft_cd(t_cmd *cmd, t_shell *shell);
 void	ft_echo(t_cmd *cmd);
 void	ft_env(t_cmd *cmd, t_shell *shell);
+void	ft_exit(t_cmd *cmd, t_shell *shell);
+void	ft_export(t_cmd *cmd, t_shell *shell, int len);
 void	ft_pwd(void);
+void	ft_unset(t_cmd *cmd, t_shell *shell);
+
 							//* Executor functions *//
 							
 char	*ft_expandit(char *input, t_shell *shell, int expand);
