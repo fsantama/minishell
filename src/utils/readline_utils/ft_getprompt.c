@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getprompt.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:53:59 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 11:56:11 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:20:14 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ char	*ft_getprompt(char *str)
 		return (NULL);
 	return (free(p1), free(p2), free(p3), free(p4), free(str), prompt);
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:30 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 12:15:15 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:05:32 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,5 @@ void	child_generator(t_shell *shell, t_cmd *cmd)
 	close(keyboard_fd);
 	dup2(display_fd, 1);
 	close(display_fd);
-	ft_free_cmds(cmd, shell);
+	ft_freecmds(cmd, shell);
 }

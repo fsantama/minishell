@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checksplit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 13:03:29 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/23 13:11:51 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:19:50 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ void	ft_checksplit(char **split)
 	else
 		printf("Failed to split input\n");
 }
-

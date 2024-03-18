@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 16:39:17 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 13:08:44 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:16:01 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_env(t_cmd *cmd, t_shell *shell)
 
 	i = 0;
 	if (cmd->argc != 1)
-        printf("MiniShell: env: Too many arguments\n");
-	while ((pipex->envp)[i++])
-		ft_putendl_fd((pipex->envp)[i], STDOUT_FILENO);
+		printf("MiniShell: env: Too many arguments\n");
+	while ((shell->envp)[i++])
+		ft_putendl_fd((shell->envp)[i], STDOUT_FILENO);
 }

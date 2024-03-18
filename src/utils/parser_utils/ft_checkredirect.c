@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checkredirect.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:46:33 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/05 16:55:25 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:19:32 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int	ft_checkredirect(char *input)
 				|| ft_checksymbols(split[i], '>') == 1
 				|| ft_checksymbols(split[i], '<') == 1))
 		{
-				ft_putendl_fd("Syntax error near unexpected token `>'", 2);
+			ft_putendl_fd("Syntax error near unexpected token `>'", 2);
 			return (1);
 		}
 		i++;

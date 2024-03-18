@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_expand.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:36 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 10:35:38 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:11:59 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ft_getenv(char *var, t_shell *shell)
 	while (var[size] != ' ' && var[size] != '\t' && var[size] != '\''
 		&& var[size] != '"' && var[size] != '$' && var[size]
 		&& var[size] != '|' && var[size] != '\'')
-			size++;
+		size++;
 	while (shell->envp[i])
 	{
 		aux = ft_strchr(shell->envp[i], '=') + 1;

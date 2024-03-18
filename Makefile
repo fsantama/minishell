@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+         #
+#    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/03/18 13:27:14 by ajurado-         ###   ########.fr        #
+#    Updated: 2024/03/18 16:48:42 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS	=	src/minishell.c \
 			src/builtins/unset.c \
 			src/executor/ft_expand.c \
 			src/executor/ft_pipe.c \
+			src/executor/ft_signal_handler.c \
 			src/lexer/ft_getinput.c \
 			src/parser/ft_parserinput.c \
 			src/utils/env_utils/ft_findbasename.c \
@@ -52,6 +53,7 @@ SRCS	=	src/minishell.c \
 			src/utils/general_utils/ft_freecmd.c \
 			src/utils/general_utils/ft_printheader.c \
 			src/utils/general_utils/ft_strjoinfree.c \
+			src/utils/general_utils/ft_initshell.c \
 			src/utils/lexer_utils/ft_addcmd.c \
 			src/utils/lexer_utils/ft_getcmd.c \
 			src/utils/manage_array_utils/ft_arraydup.c \

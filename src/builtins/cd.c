@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 16:39:39 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 13:11:09 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:14:54 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
-void    ft_cd(t_cmd *cmd, t_shell *shell)
+void	ft_cd(t_cmd *cmd, t_shell *shell)
 {
-	char    *curr_path;
-	char    *new_path;
+	char	*curr_path;
+	char	*new_path;
 	char	*aux;
 
 	curr_path = getcwd(NULL, 0);
 	new_path = ft_strdup(cmd->args[1]);
 	if (!new_path)
-        new_path = ft_getenv("HOME", shell);
+		new_path = ft_getenv("HOME", shell);
 	if (ft_strncmp(new_path, "-", 2) == 0)
 		new_path = ft_getenv("OLDPWD", shell);
 	if (chdir(new_path))

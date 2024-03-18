@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   builtin_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/18 14:16:37 by ajurado-          #+#    #+#             */
+/*   Updated: 2024/03/18 14:16:39 by ajurado-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/minishell.h"
 
 int	find_env_pos(char *str, char **envp)
 {
 	int		i;
-    int     len;
+	int		len;
 	char	*aux;
 
 	i = -1;
-    len = ft_strlen(str);
+	len = ft_strlen(str);
 	if (!str[0])
 		return (-1);
 	while (envp[++i])

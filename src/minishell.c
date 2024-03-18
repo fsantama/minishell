@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/14 16:49:43 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:39:03 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	loop(t_shell *shell)
 		tmp = ft_getline(ft_getprompt(ft_findbasename(shell->pwd)));
 		if (!tmp)
 			ft_error(INVALID_INPUT, EPERM);
-		
 		add_history(tmp);
 		shell->input = ft_strtrim(tmp, " ");
 //		ft_checksplit(ft_splitshell(shell->input, '|'));
@@ -45,8 +44,7 @@ int	main(int argc, char **argv, char **envp)
 	{
 		ft_printheader(HEADER);
 		ft_findenv(&shell, envp);
-		// ft_initshell(&shell); aquí iniciaremos las variables como las señales 
-		// y todo lo que necesitemos
+		ft_initshell(&shell);
 		loop(&shell);
 	}
 	else

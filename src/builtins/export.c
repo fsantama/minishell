@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/18 14:17:13 by ajurado-          #+#    #+#             */
+/*   Updated: 2024/03/18 14:17:52 by ajurado-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/minishell.h"
 
 void	ft_export(t_cmd *cmd, t_shell *shell, int len)
@@ -10,7 +22,7 @@ void	ft_export(t_cmd *cmd, t_shell *shell, int len)
 		if (cmd->args[1][0] && (!ft_isalpha(cmd->args[1][0])
 		&& cmd->args[1][0] != '_'))
 		{
-			err_msg("export: not a valid identifier\n");
+			printf("export: not a valid identifier\n");
 			return ;
 		}
 		while (cmd->args[1][len] && cmd->args[1][len] != '=')

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 16:39:07 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 13:12:05 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 12:36:49 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	print_str(char **args, int idx)
 void	ft_echo(t_cmd *cmd)
 {
 	if (cmd->argc == 2 && has_n_flag(cmd->args[1]))
-		break ;
+		return ;
 	else if (cmd->argc == 1)
 		ft_putendl_fd("", STDOUT_FILENO);
 	else if (cmd->argc >= 2 && !has_n_flag(cmd->args[1]))

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/18 14:17:05 by ajurado-          #+#    #+#             */
+/*   Updated: 2024/03/18 14:17:43 by ajurado-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/minishell.h"
 
 static int	ft_checkexit(t_cmd *cmd)
@@ -11,7 +23,7 @@ static int	ft_checkexit(t_cmd *cmd)
 		{
 			if (!ft_isdigit(cmd->args[1][i]))
 			{
-                printf("exit: Numeric argument required");
+				printf("exit: Numeric argument required");
 				ft_putendl_fd(cmd->args[1], 2);
 				return (-1);
 			}
@@ -23,13 +35,14 @@ static int	ft_checkexit(t_cmd *cmd)
 
 void	ft_exit(t_cmd *cmd, t_shell *shell)
 {
-	shell->shell_exit = ft_checkexit(cmd);
+	shell->exit = ft_checkexit(cmd);
 	if (cmd->args[1] && cmd->args[2])
 		printf("exit: Too many arguments");
-	else if (shell->shell_exit != -1)
+	else if (shell->exit != -1)
 	{
-		free_pipe_structure(shell);
-		ft_free_cmds(cmd, shell);
-		exit(shell->shell_exit);
+		ft_arrayfree(shell->envp);
+		ft_arrayfree(shell->path);
+		ft_freecmds(cmd, shell);
+		exit(shell->exit);
 	}
 }
