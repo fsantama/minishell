@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 13:08:34 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:21:45 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <signal.h>
 # include <fcntl.h>
 # include <errno.h>
+# include <stdbool.h>
 
 /*-----------------------------------HEADER-----------------------------------*/
 
@@ -55,6 +56,7 @@ typedef struct s_cmd
 {
 	char	*cmd;
 	char	**args;
+	int		argc;
 	char	*infile;
 	int		infile_redirect;
 	char	*outfile;
@@ -92,11 +94,11 @@ typedef enum s_typetoken
 							//* Builtins functions *//
 
 // builtin_utils
-int	find_env_pos(char *str, char **envp);
+int		find_env_pos(char *str, char **envp);
 char	**delete_env_item(int pos, char **array);
 
 int		builting(t_cmd *cmd, t_shell *shell);
-void    ft_cd(t_cmd *cmd, t_shell *shell);
+void	ft_cd(t_cmd *cmd, t_shell *shell);
 void	ft_echo(t_cmd *cmd);
 void	ft_env(t_cmd *cmd, t_shell *shell);
 void	ft_exit(t_cmd *cmd, t_shell *shell);
@@ -105,7 +107,10 @@ void	ft_pwd(void);
 void	ft_unset(t_cmd *cmd, t_shell *shell);
 
 							//* Executor functions *//
-							
+
+//expand
+char	*ft_get_exit_status(char *var, t_shell *shell);
+char	*ft_getenv(char *var, t_shell *shell);
 char	*ft_expandit(char *input, t_shell *shell, int expand);
 void	child_generator(t_shell *shell, t_cmd *cmd);
 
@@ -116,7 +121,7 @@ t_cmd	*ft_getinput(char *input, t_shell *shell);
 							//* Parser functions *//
 
 void	ft_parserinput(char *input, t_shell *shell);
-							
+
 							//* Utils functions *//
 
 // env_utils
@@ -133,7 +138,7 @@ char	*ft_findpwd(char **envp);
 // general_utils
 char	**ft_addarray(char *str, char **array);
 void	ft_error(char *error, int error_code);
-void	ft_free_cmds(t_cmd *cmd, t_shell *shell);
+void	ft_freecmds(t_cmd *cmd, t_shell *shell);
 
 // void	ft_initshell(t_shell shell);
 void	ft_printheader(char *str);

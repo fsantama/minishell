@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
+#    By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/03/15 13:05:46 by fsantama         ###   ########.fr        #
+#    Updated: 2024/03/18 13:27:14 by ajurado-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,14 @@ LIBFT 	=	./inc/Libft/libft.a
 
 SRCS	=	src/minishell.c \
 			src/builtins/built.c \
+			src/builtins/builtin_utils.c \
 			src/builtins/cd.c \
 			src/builtins/echo.c \
 			src/builtins/env.c \
-			src/builtins/execute.c \
+			src/builtins/exit.c \
+			src/builtins/export.c \
 			src/builtins/pwd.c \
+			src/builtins/unset.c \
 			src/executor/ft_expand.c \
 			src/executor/ft_pipe.c \
 			src/lexer/ft_getinput.c \
@@ -43,6 +46,7 @@ SRCS	=	src/minishell.c \
 			src/utils/env_utils/ft_findoldpwd.c \
 			src/utils/env_utils/ft_findpath.c \
 			src/utils/env_utils/ft_findpwd.c \
+			src/utils/executor_utils/executor_utils.c \
 			src/utils/general_utils/ft_addarray.c \
 			src/utils/general_utils/ft_error.c \
 			src/utils/general_utils/ft_freecmd.c \
