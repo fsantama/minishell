@@ -6,7 +6,7 @@
 #    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/03/18 16:48:42 by fsantama         ###   ########.fr        #
+#    Updated: 2024/03/18 17:14:57 by fsantama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 # PROGRAM FOR COMPILING C PROGRAMS
 CC 		=	gcc
 # C COMPILER FLAGS
-CFLAGS =	-Werror -Wall -Wextra -g3
+CFLAGS =	-Werror -Wall -Wextra -I "/Users/$(USER)/.brew/opt/readline/include/"
 
 NAME 	=	minishell
 LIBFT 	=	./inc/Libft/libft.a

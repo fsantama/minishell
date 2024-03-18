@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:16:37 by ajurado-          #+#    #+#             */
-/*   Updated: 2024/03/18 14:16:39 by ajurado-         ###   ########.fr       */
+/*   Updated: 2024/03/18 18:56:54 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,17 @@ char	**delete_env_item(int pos, char **array)
 {
 	int		i;
 	char	**new_array;
+	int		arraylen;
 
 	i = -1;
-	if (!array || pos < 0 || pos > ft_arraylen(array))
+	arraylen = ft_arraylen(array);
+	if (!array || pos < 0 || pos > arraylen)
 		return (array);
-	new_array = ft_calloc(sizeof(char *), ft_arraylen(array));
-	while (array[++i])
-	{
-		if (i >= pos)
-			new_array[i] = ft_strdup(array[i + 1]);
-		else
-			new_array[i] = ft_strdup(array[i]);
-	}
+	new_array = ft_calloc(sizeof(char *), arraylen);
+	while (++i < pos && array[i])
+		new_array[i] = ft_strdup(array[i]);
+	while ( ++i < arraylen && array[i + 1])
+		new_array[i - 1] = ft_strdup(array[i]);
 	ft_arrayfree(array);
 	return (new_array);
 }

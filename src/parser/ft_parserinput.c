@@ -6,7 +6,7 @@
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:24:01 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 12:08:46 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/18 18:28:12 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	*ft_waitpipe(char *input, t_shell *shell, char **split_pipe)
 	{
 		while (ft_countpipe(input) + 1 != shell->n_cmd)
 		{
-			aux = readline(">");
+			aux = readline("> ");
 //			printf("entro");
 //			printf("Numero de comandos: %d", shell->n_cmd);
 			input = ft_strjoinfree(input, aux);
@@ -81,10 +81,10 @@ void	ft_parserinput(char *input, t_shell *shell)
 		split_pipe = ft_cleanspaces(split_pipe);
 		shell->n_cmd = ft_arraylen(split_pipe);
 		input = ft_waitpipe(input, shell, split_pipe);
-		new_input = ft_expandit(new_input, shell, 0);
+		new_input = ft_expandit(input, shell, 0);
 		cmd = ft_getinput(new_input, shell);
 		free(new_input);
-		free (input);
+		// free (input);
 //		ft_arrayfree(split_pipe);
 		if (ft_existcmd(cmd, shell) == 1)
 			child_generator(shell, cmd);
