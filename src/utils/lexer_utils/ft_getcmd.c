@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getcmd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:51:49 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/18 18:26:12 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 18:40:32 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
-char	*ft_getcmd(t_shell shell, char *cmd)
+char	*ft_getcmd(t_shell *shell, char *cmd)
 {
 	int		i;
 	char	*aux;
@@ -26,9 +26,11 @@ char	*ft_getcmd(t_shell shell, char *cmd)
 	i = 0;
 	if (access(ex, X_OK) == 0)
 		return (free(cmd), ex);
-	while (shell.path && shell.path[i])
+	ft_arrayfree(shell->path);
+	shell->path = ft_findpath(shell->envp);
+	while (shell->path && shell->path[i])
 	{
-		aux = ft_strjoin(shell.path[i], "/");
+		aux = ft_strjoin(shell->path[i], "/");
 		c = ft_strjoin(aux, ex);
 		free (aux);
 		if (access(c, X_OK) == 0)
@@ -36,6 +38,5 @@ char	*ft_getcmd(t_shell shell, char *cmd)
 		free (c);
 		i++;
 	}
-	free (ex);
-	return (cmd);
+	return (free(ex), cmd);
 }

@@ -6,7 +6,7 @@
 /*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:17:05 by ajurado-          #+#    #+#             */
-/*   Updated: 2024/03/18 14:17:43 by ajurado-         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:33:01 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_checkexit(t_cmd *cmd)
 		{
 			if (!ft_isdigit(cmd->args[1][i]))
 			{
-				printf("exit: Numeric argument required");
+				printf("exit: numeric argument required");
 				ft_putendl_fd(cmd->args[1], 2);
 				return (-1);
 			}
@@ -37,8 +37,8 @@ void	ft_exit(t_cmd *cmd, t_shell *shell)
 {
 	shell->exit = ft_checkexit(cmd);
 	if (cmd->args[1] && cmd->args[2])
-		printf("exit: Too many arguments");
-	else if (shell->exit != -1)
+		printf("exit: too many arguments");
+	if (shell->exit != -1)
 	{
 		ft_arrayfree(shell->envp);
 		ft_arrayfree(shell->path);

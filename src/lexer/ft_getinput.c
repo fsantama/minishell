@@ -6,7 +6,7 @@
 /*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:19:10 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/19 12:06:38 by ajurado-         ###   ########.fr       */
+/*   Updated: 2024/03/19 18:36:57 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	ft_fillcmd(char *one_cmd, int *i, t_shell *shell, t_cmd *cmd)
 	{
 		cmd->cmd = ft_getname(&one_cmd[*i], i);
 		cmd->args = ft_addarray(ft_strdup(cmd->cmd), cmd->args);
-		cmd->cmd = ft_getcmd(*shell, cmd->cmd);
+		cmd->cmd = ft_getcmd(shell, cmd->cmd);
 	}
 	else
 		cmd->args = ft_addarray(ft_getname(&one_cmd[*i], i), cmd->args);

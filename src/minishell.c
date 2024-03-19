@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/18 19:07:55 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 18:26:04 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	loop(t_shell *shell)
 		tmp = ft_getline(ft_getprompt(ft_findbasename(shell->pwd)));
 		if (!tmp)
 			ft_error(INVALID_INPUT, EPERM);
+		if (tmp[0] == '\0')
+			continue ;
 		add_history(tmp);
 		shell->input = ft_strtrim(tmp, " ");
 		ft_parserinput(shell->input, shell);

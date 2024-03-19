@@ -6,7 +6,7 @@
 /*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/19 12:33:36 by ajurado-         ###   ########.fr       */
+/*   Updated: 2024/03/19 18:37:04 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ typedef struct s_shell
 	int		tmp_out;
 	int		fd_in;
 	int		fd_out;
-//	t_cmd	*cmd;
 }	t_shell;
 
 typedef enum s_typetoken
@@ -145,7 +144,7 @@ char	*ft_strjoinfree(char *s1, char const *s2);
 
 //lexer_utils
 char	*ft_getname(char *cmd, int *j);
-char	*ft_getcmd(t_shell shell, char *cmd);
+char	*ft_getcmd(t_shell *shell, char *cmd);
 void	ft_heredoc(t_cmd *cmd);
 
 // manage_array_utils
