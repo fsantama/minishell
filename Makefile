@@ -6,7 +6,7 @@
 #    By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/03/19 12:05:52 by ajurado-         ###   ########.fr        #
+#    Updated: 2024/03/19 12:34:04 by ajurado-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ SRCS	=	src/minishell.c \
 			src/parser/ft_parserinput.c \
 			src/utils/env_utils/ft_findbasename.c \
 			src/utils/env_utils/ft_findenv.c \
-			src/utils/env_utils/ft_findoldpwd.c \
 			src/utils/env_utils/ft_findpath.c \
 			src/utils/env_utils/ft_findpwd.c \
 			src/utils/executor_utils/executor_utils.c \
@@ -62,7 +61,6 @@ SRCS	=	src/minishell.c \
 			src/utils/parser_utils/ft_checkpipe.c \
 			src/utils/parser_utils/ft_checkquotes.c \
 			src/utils/parser_utils/ft_checkredirect.c \
-			src/utils/parser_utils/ft_checksplit.c \
 			src/utils/parser_utils/ft_splitshell.c \
 			src/utils/readline_utils/ft_getline.c \
 			src/utils/readline_utils/ft_getprompt.c \

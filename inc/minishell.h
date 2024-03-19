@@ -6,7 +6,7 @@
 /*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/19 12:05:45 by ajurado-         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:33:36 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ typedef struct s_shell
 	char	**envp;
 	char	**path;
 	char	*pwd;
-	char	*old_pwd;
 	char	*input;
 	int		exit;
 	int		n_cmd;
@@ -127,7 +126,6 @@ void	ft_parserinput(char *input, t_shell *shell);
 // env_utils
 char	*ft_findbasename(const char *path);
 void	ft_findenv(t_shell *shell, char **envp);
-char	*ft_findoldpwd(char **envp);
 
 //	executor_utils
 int		redir_check(t_shell *shell, t_cmd *cmd, int i);
@@ -162,7 +160,6 @@ int		ft_countpipe(char *input);
 int		ft_checkquotes(char *input);
 int		ft_checkpipe(char *input);
 int		ft_checkredirect(char *input);
-void	ft_checksplit(char **split);
 char	**ft_splitshell(char *str, char s);
 char	**ft_cleanspaces(char **split);
 

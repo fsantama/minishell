@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_findenv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:36 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 13:29:46 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:33:18 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ void	ft_findenv(t_shell *shell, char **envp)
 {
 	shell->envp = ft_arraydup(envp);
 	shell->pwd = ft_findpwd(shell->envp);
-	shell->old_pwd = ft_findoldpwd(shell->envp);
 	shell->path = ft_findpath(shell->envp);
 }
