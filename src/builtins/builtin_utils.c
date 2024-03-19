@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:16:37 by ajurado-          #+#    #+#             */
-/*   Updated: 2024/03/18 18:56:54 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 10:00:16 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	**delete_env_item(int pos, char **array)
 	new_array = ft_calloc(sizeof(char *), arraylen);
 	while (++i < pos && array[i])
 		new_array[i] = ft_strdup(array[i]);
-	while ( ++i < arraylen && array[i + 1])
+	while (++i < arraylen && array[i + 1])
 		new_array[i - 1] = ft_strdup(array[i]);
 	ft_arrayfree(array);
 	return (new_array);

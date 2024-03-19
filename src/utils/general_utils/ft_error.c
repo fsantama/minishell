@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:08:04 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/08 12:47:09 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:10:57 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,5 @@
 void	ft_error(char *error, int error_code)
 {
 	(void) error_code;
-	//return (perror(ft_strjoin(strerror(error_code), error)), exit(EXIT_FAILURE));
 	return (perror(error), exit(EXIT_FAILURE));
-
 }

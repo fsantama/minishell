@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parserinput.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:24:01 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/18 18:28:12 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:08:42 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,15 @@ static char	*ft_waitpipe(char *input, t_shell *shell, char **split_pipe)
 		while (ft_countpipe(input) + 1 != shell->n_cmd)
 		{
 			aux = readline("> ");
-//			printf("entro");
-//			printf("Numero de comandos: %d", shell->n_cmd);
 			input = ft_strjoinfree(input, aux);
 			free (aux);
 			ft_arrayfree(split_pipe);
 			if (parsersyntax(input, shell) == 1)
 				return (input);
-			split_pipe= ft_splitshell(input, '|');
+			split_pipe = ft_splitshell(input, '|');
 			split_pipe = ft_cleanspaces(split_pipe);
 			shell->n_cmd = ft_arraylen(split_pipe);
-			ft_arrayfree(split_pipe); // Puede dar problemas en el futuro
+			ft_arrayfree(split_pipe);
 		}
 	}
 	else
@@ -66,14 +64,12 @@ static char	*ft_waitpipe(char *input, t_shell *shell, char **split_pipe)
 	return (input);
 }
 
-
 void	ft_parserinput(char *input, t_shell *shell)
 {
 	char	**split_pipe;
 	char	*new_input;
 	t_cmd	*cmd;
 
-//	split_pipe = NULL;
 	new_input = NULL;
 	if (parsersyntax(input, shell) == 0)
 	{
@@ -84,8 +80,6 @@ void	ft_parserinput(char *input, t_shell *shell)
 		new_input = ft_expandit(input, shell, 0);
 		cmd = ft_getinput(new_input, shell);
 		free(new_input);
-		// free (input);
-//		ft_arrayfree(split_pipe);
 		if (ft_existcmd(cmd, shell) == 1)
 			child_generator(shell, cmd);
 	}

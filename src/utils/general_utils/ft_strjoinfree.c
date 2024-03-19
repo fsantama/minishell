@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoinfree.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:32:59 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/18 18:26:00 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:21:01 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,16 @@ char	*ft_strjoinfree(char *s1, char const *s2)
 
 	if (!s1 && !s2)
 		return (0);
-	size = (s1 ? ft_strlen(s1) : 0) + ft_strlen(s2);
+	size = 0;
+	if (s1)
+		size += ft_strlen(s1);
+	size += ft_strlen(s2);
 	join = (char *) malloc(sizeof (char) * (size + 1));
 	if (!join)
 		return (0);
-	i = (s1 ? ft_strlen(s1) : 0);
+	i = 0;
+	if (s1)
+		i = ft_strlen(s1);
 	ft_memcpy(join, s1, i);
 	ft_memcpy(&join[i], s2, ft_strlen(s2));
 	join[size] = 0;

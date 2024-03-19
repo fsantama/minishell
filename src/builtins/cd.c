@@ -6,7 +6,7 @@
 /*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 16:39:39 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/18 14:14:54 by ajurado-         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:20:59 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ void	ft_cd(t_cmd *cmd, t_shell *shell)
 	new_path = ft_strdup(cmd->args[1]);
 	if (!new_path)
 		new_path = ft_getenv("HOME", shell);
-	if (ft_strncmp(new_path, "-", 2) == 0)
+	else if (ft_strncmp(new_path, "-", 2) == 0
+		|| ft_strncmp(new_path, "..", 3) == 0)
+	{
+		free(new_path);
 		new_path = ft_getenv("OLDPWD", shell);
+	}
 	if (chdir(new_path))
 		printf("cd: %s: No such file or directory\n", cmd->args[1]);
 	else

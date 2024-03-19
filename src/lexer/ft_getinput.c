@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getinput.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:19:10 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/15 12:05:51 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:06:38 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ t_cmd	*ft_getinput(char *input, t_shell *shell)
 	char	**split_pipe;
 	t_cmd	*cmd;
 
-//	printf("Entro");
 	i = 0;
 	split_pipe = ft_splitshell(input, '|');
 	split_pipe = ft_cleanspaces(split_pipe);

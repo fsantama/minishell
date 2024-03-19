@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   built.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:02:08 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/18 19:13:13 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 10:45:35 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	builting(t_cmd *cmd, t_shell *shell)
 		|| !ft_strncmp(cmd->args[0], "/bin/echo", 10))
 		ft_echo(cmd);
 	else if (!ft_strncmp(cmd->args[0], "pwd", 4))
-		ft_pwd();
+		ft_pwd(cmd);
 	else if (!ft_strncmp(cmd->args[0], "cd", 3))
 		ft_cd(cmd, shell);
 	else if (!ft_strncmp(cmd->args[0], "export", 7))

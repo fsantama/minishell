@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:02:44 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/18 19:13:23 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:05:45 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ typedef struct s_cmd
 {
 	char	*cmd;
 	char	**args;
-	int		argc;
 	char	*infile;
 	int		infile_redirect;
 	char	*outfile;
@@ -103,7 +102,7 @@ void	ft_echo(t_cmd *cmd);
 void	ft_env(t_cmd *cmd, t_shell *shell);
 void	ft_exit(t_cmd *cmd, t_shell *shell);
 void	ft_export(t_cmd *cmd, t_shell *shell, int len);
-void	ft_pwd(void);
+void	ft_pwd(t_cmd *cmd);
 void	ft_unset(t_cmd *cmd, t_shell *shell);
 
 							//* Executor functions *//
@@ -142,7 +141,6 @@ void	ft_error(char *error, int error_code);
 void	ft_freecmds(t_cmd *cmd, t_shell *shell);
 void	ft_initshell(t_shell *shell);
 
-
 // void	ft_initshell(t_shell shell);
 void	ft_printheader(char *str);
 char	*ft_strjoinfree(char *s1, char const *s2);
@@ -156,7 +154,6 @@ void	ft_heredoc(t_cmd *cmd);
 char	**ft_arraydup(char **array);
 void	ft_arrayfree(char **array);
 int		ft_arraylen(char **array);
-void	ft_arrayprint(char **array);
 
 // parser_utils
 

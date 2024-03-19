@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
+#    By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/03/18 17:14:57 by fsantama         ###   ########.fr        #
+#    Updated: 2024/03/19 12:05:52 by ajurado-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,6 @@ SRCS	=	src/minishell.c \
 			src/utils/manage_array_utils/ft_arraydup.c \
 			src/utils/manage_array_utils/ft_arrayfree.c \
 			src/utils/manage_array_utils/ft_arraylen.c \
-			src/utils/manage_array_utils/ft_arrayprint.c \
 			src/utils/parser_utils/ft_checkpipe.c \
 			src/utils/parser_utils/ft_checkquotes.c \
 			src/utils/parser_utils/ft_checkredirect.c \
