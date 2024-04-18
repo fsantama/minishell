@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arrayfree.c                                     :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 10:03:11 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/19 18:38:07 by ajurado-         ###   ########.fr       */
+/*   Created: 2024/03/05 16:39:17 by fsantama          #+#    #+#             */
+/*   Updated: 2024/03/19 10:41:36 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../inc/minishell.h"
+#include "../../inc/minishell.h"
 
-/**
- *	@brief			Frees the memory allocated for an array of strings.
- * 
- *	@param	array	A pointer to the array of strings to free.
- */
-void	ft_arrayfree(char **array)
+void	ft_env(t_cmd *cmd, t_shell *shell)
 {
 	int	i;
 
-	if (array)
+	i = -1;
+	if (cmd->args[1])
+		printf("env: %s: No such file or directory\n", cmd->args[1]);
+	else
 	{
-		i = 0;
-		while (array[i])
-		{
-			free(array[i]);
-			i++;
-		}
-		free(array);
+		while ((shell->envp)[++i])
+			ft_putendl_fd((shell->envp)[i], STDOUT_FILENO);
 	}
 }

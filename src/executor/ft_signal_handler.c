@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printheader.c                                   :+:      :+:    :+:   */
+/*   ft_signal_handler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 12:52:02 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 11:47:34 by fsantama         ###   ########.fr       */
+/*   Created: 2024/03/18 16:43:32 by fsantama          #+#    #+#             */
+/*   Updated: 2024/03/18 16:52:39 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../inc/minishell.h"
+#include "../../inc/minishell.h"
 
-/**
- * @brief		Prints the provided string as the header.
- * 
- * @param	str	The string to be printed as the header.
- */
-void	ft_printheader(char *str)
+void	sigint_handler(int sig)
 {
-	printf("%s", str);
+	(void) sig;
+	rl_on_new_line();
+	rl_redisplay();
+	ft_putstr_fd("  ", 1);
+	printf("\n");
+	rl_replace_line("", 0);
+	rl_on_new_line();
+	rl_redisplay();
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getpath.c                                       :+:      :+:    :+:   */
+/*   ft_findpath.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:30 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/05 10:03:31 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:21:19 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
  * paths.
  *
  * @param 	envp 	The array of environment variables.
- * @return 			char** An array of strings representing the paths in the PATH 
- * 					variable.
+ * @return 			char** An array of strings representing the paths in the 
+ * 					PATH variable.
  *               	Returns NULL if PATH is not found or is empty.
  */
-char	**ft_getpath(char **envp)
+char	**ft_findpath(char **envp)
 {
 	char	**path;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	while (envp[i] && ft_strnstr(envp[i], "PATH=", 5) == 0)

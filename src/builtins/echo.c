@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 16:39:34 by fsantama          #+#    #+#             */
-/*   Updated: 2024/03/19 10:44:36 by ajurado-         ###   ########.fr       */
+/*   Created: 2024/03/05 16:39:07 by fsantama          #+#    #+#             */
+/*   Updated: 2024/03/19 10:23:22 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
-void	ft_pwd(t_cmd *cmd)
+static bool	check_flag(char *str)
 {
-	char	*path;
+	int	i;
 
-	if (cmd->args[1])
+	i = 1;
+	if (str[0] != '-')
+		return (false);
+	while (str[i])
 	{
-		ft_putendl_fd("pwd: too many arguments", 2);
-		return ;
+		if (str[i] != 'n')
+			return (false);
+		i++;
 	}
-	else
+	return (true);
+}
+
+void	ft_echo(t_cmd *cmd)
+{
+	int	i;
+
+	i = 1;
+	if (cmd->args[1] && check_flag(cmd->args[1]))
+		i++;
+	while (cmd->args[i])
 	{
-		path = getcwd(NULL, 0);
-		ft_putendl_fd(path, 1);
-		free(path);
+		ft_putstr_fd(cmd->args[i++], 1);
+		if (cmd->args[i])
+			ft_putstr_fd(" ", 1);
 	}
+	if (!(cmd->args[1] && check_flag(cmd->args[1])))
+		ft_putstr_fd("\n", 1);
 }

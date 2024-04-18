@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+         #
+#    By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 10:02:17 by fsantama          #+#    #+#              #
-#    Updated: 2024/02/08 12:57:15 by fsantama         ###   ########.fr        #
+#    Updated: 2024/03/19 12:34:04 by ajurado-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 # PROGRAM FOR COMPILING C PROGRAMS
 CC 		=	gcc
 # C COMPILER FLAGS
-CFLAGS =	-Werror -Wall -Wextra
+CFLAGS =	-Werror -Wall -Wextra -I "/Users/$(USER)/.brew/opt/readline/include/"
 
 NAME 	=	minishell
 LIBFT 	=	./inc/Libft/libft.a
@@ -28,15 +28,43 @@ LIBFT 	=	./inc/Libft/libft.a
 # =============================================================================#
 
 SRCS	=	src/minishell.c \
+			src/builtins/built.c \
+			src/builtins/builtin_utils.c \
+			src/builtins/cd.c \
+			src/builtins/echo.c \
+			src/builtins/env.c \
+			src/builtins/exit.c \
+			src/builtins/export.c \
+			src/builtins/pwd.c \
+			src/builtins/unset.c \
+			src/executor/ft_expand.c \
+			src/executor/ft_pipe.c \
+			src/executor/ft_signal_handler.c \
+			src/lexer/ft_getinput.c \
+			src/parser/ft_parserinput.c \
+			src/utils/env_utils/ft_findbasename.c \
+			src/utils/env_utils/ft_findenv.c \
+			src/utils/env_utils/ft_findpath.c \
+			src/utils/env_utils/ft_findpwd.c \
+			src/utils/executor_utils/executor_utils.c \
+			src/utils/general_utils/ft_addarray.c \
 			src/utils/general_utils/ft_error.c \
+			src/utils/general_utils/ft_freecmd.c \
 			src/utils/general_utils/ft_printheader.c \
+			src/utils/general_utils/ft_strjoinfree.c \
+			src/utils/general_utils/ft_initshell.c \
+			src/utils/lexer_utils/ft_addcmd.c \
+			src/utils/lexer_utils/ft_getcmd.c \
 			src/utils/manage_array_utils/ft_arraydup.c \
 			src/utils/manage_array_utils/ft_arrayfree.c \
 			src/utils/manage_array_utils/ft_arraylen.c \
-			src/utils/manage_array_utils/ft_printarray.c \
-			src/utils/parser_utils/ft_getpath.c \
-			src/utils/env_utils/ft_initenv.c \
+			src/utils/parser_utils/ft_checkpipe.c \
+			src/utils/parser_utils/ft_checkquotes.c \
+			src/utils/parser_utils/ft_checkredirect.c \
+			src/utils/parser_utils/ft_splitshell.c \
 			src/utils/readline_utils/ft_getline.c \
+			src/utils/readline_utils/ft_getprompt.c \
+			
 			
 			
 OBJS	=	$(SRCS:.c=.o)

@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initenv.c                                       :+:      :+:    :+:   */
+/*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 10:03:36 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/08 13:09:16 by fsantama         ###   ########.fr       */
+/*   Created: 2024/03/18 14:17:21 by ajurado-          #+#    #+#             */
+/*   Updated: 2024/03/18 14:17:58 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../inc/minishell.h"
+#include "../../inc/minishell.h"
 
-void	ft_initenv(t_shell *shell, char **envp)
+void	ft_unset(t_cmd *cmd, t_shell *shell)
 {
-	shell->envp = ft_arraydup(envp);
+	int		pos;
+
+	if (cmd->args[1])
+	{
+		pos = find_env_pos(cmd->args[1], shell->envp);
+		if (pos >= 0)
+			shell->envp = delete_env_item(pos, shell->envp);
+	}
 }

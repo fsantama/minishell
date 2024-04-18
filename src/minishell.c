@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ajurado- <ajurado-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:03:40 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/15 16:15:26 by fsantama         ###   ########.fr       */
+/*   Updated: 2024/03/19 18:26:04 by ajurado-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ void	leaks(void)
 
 void	loop(t_shell *shell)
 {
-	char	*input;
-	char	*aux;
-	(void) shell;
+	char	*tmp;
 
 	while (1)
 	{
-		input = ft_getline(LINE);
-		if (!input)
+		tmp = ft_getline(ft_getprompt(ft_findbasename(shell->pwd)));
+		if (!tmp)
 			ft_error(INVALID_INPUT, EPERM);
-		add_history(input);
-		aux = ft_strtrim(input, " ");
-		free(input);
-		free (aux);
+		if (tmp[0] == '\0')
+			continue ;
+		add_history(tmp);
+		shell->input = ft_strtrim(tmp, " ");
+		ft_parserinput(shell->input, shell);
+		free (tmp);
 	}
 }
 
@@ -43,7 +43,8 @@ int	main(int argc, char **argv, char **envp)
 	if (argc == 1 && argv[0])
 	{
 		ft_printheader(HEADER);
-		ft_initenv(&shell, envp);
+		ft_findenv(&shell, envp);
+		ft_initshell(&shell);
 		loop(&shell);
 	}
 	else

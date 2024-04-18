@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printheader.c                                   :+:      :+:    :+:   */
+/*   ft_initshell.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsantama <fsantama@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 12:52:02 by fsantama          #+#    #+#             */
-/*   Updated: 2024/02/16 11:47:34 by fsantama         ###   ########.fr       */
+/*   Created: 2024/02/16 12:36:38 by fsantama          #+#    #+#             */
+/*   Updated: 2024/03/18 19:07:47 by fsantama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
-/**
- * @brief		Prints the provided string as the header.
- * 
- * @param	str	The string to be printed as the header.
- */
-void	ft_printheader(char *str)
+void	ft_initshell(t_shell *shell)
 {
-	printf("%s", str);
+	signal(SIGINT, sigint_handler);
+	signal(SIGQUIT, SIG_IGN);
+	shell->fd_in = dup(0);
+	shell->tmp_out = dup(1);
 }
